@@ -12,9 +12,9 @@ const Navigation = () => {
             <input type="search" className='searchBar' placeholder='Search'/>
         </form>
         <div >
-          <AiOutlineHome size={20} className='icons' />
-          <IoIosAddCircleOutline size={20} className='icons' />
-          <AiOutlineUser size={20} className='icons' />
+          <AiOutlineHome size={35} className='icons' />
+          <IoIosAddCircleOutline size={35} className='icons' />
+          <AiOutlineUser size={35} className='icons' />
         </div>
     </div>
   )
