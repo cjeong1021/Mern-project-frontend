@@ -1,0 +1,17 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .5px solid black;
+    height: 50px;
+}
+
+.icons {
+    margin-left: 10px;
+}
+.searchBar {
+    border: 0;
+    background-color: lightgray;
+    border-radius: 4px;
+}

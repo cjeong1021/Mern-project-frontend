@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import {Route, Routes, Link} from 'react-router-dom'
 import Main from './components/Main';
-
+import Navigation from './navigation/Navigation';
 
 function App() {
   const [data, setData] = useState([])
@@ -22,8 +22,9 @@ function App() {
       }, [])
   return (
     <div className='App'>
-      <h1>testing push</h1>
-
+      <nav>
+        <Navigation />
+      </nav>
       <main>
         <Routes>
           <Route path="/" element={<Main data={data}/>}/>
