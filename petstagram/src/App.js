@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import {Route, Routes, Link} from 'react-router-dom'
-import Main from './components/Main';
+import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     const getData = () => {
       axios.get("https://jsonplaceholder.typicode.com/posts")
       .then(res => {
-        setData(res)
+        setData(res.data)
       })
       .catch(err =>{
         console.log(err)
