@@ -1,0 +1,33 @@
+.postBox {
+    width: 700px;
+    height: 1000px;
+    border: 0.5px rgb(172, 172, 172) solid;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: grid;
+    grid-template-rows: 10% 50% 10% 30% ;
+}
+.postTop{
+    display: flex;
+    align-items: center;
+}
+
+.userName{
+    position: relative;
+    float: left;
+    font-size: 24px;
+
+}
+.postImage {
+    grid-row: 2 ;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.postIcon {
+    grid-row: 3;
+    display: flex;
+    justify-content: space-between;
+}

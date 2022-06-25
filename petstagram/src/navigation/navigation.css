@@ -1,0 +1,24 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .5px solid rgb(172, 172, 172);
+    height: 80px;
+}
+
+.icons {
+    margin-left: 20px;
+}
+.searchBar {
+    border: 0;
+    background-color: lightgray;
+    border-radius: 4px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+}
+.logo{
+    align-items: center;
+    font-family: 'Kaushan Script', cursive;
+}
