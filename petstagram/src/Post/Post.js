@@ -1,5 +1,4 @@
 import React from 'react'
-import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
 import { IoIosHeartEmpty } from 'react-icons/io'
 import { BsBookmark } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'

@@ -18,3 +18,7 @@
     height: 40px;
     font-size: 20px;
 }
+.logo{
+    align-items: center;
+    font-family: 'Kaushan Script', cursive;
+}
