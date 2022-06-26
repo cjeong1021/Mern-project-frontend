@@ -9,7 +9,9 @@ const Navigation = () => {
   return (
     <div className='navBar'>
       <div className='logo'>
+        <Link to="/" style={{color: 'inherit', textDecoration:'none'}} >
         <h3><FaPaw size={25}/> Petstagram</h3>
+        </Link>
       </div>
         <form>
           <IoIosSearch />
