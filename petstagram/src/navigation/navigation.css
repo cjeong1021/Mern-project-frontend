@@ -12,7 +12,7 @@
 }
 .searchBar {
     border: 0;
-    background-color: lightgray;
+    background-color: rgb(240, 240, 240);
     border-radius: 4px;
     width: 300px;
     height: 40px;

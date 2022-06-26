@@ -14,15 +14,16 @@ const Navigation = () => {
         </Link>
       </div>
         <form>
-          <IoIosSearch />
+          <IoIosSearch size={25}/>
             <input type="search" className='searchBar' placeholder='Search'/>
         </form>
         <div >
           <Link to="/" style={{color: 'inherit'}} >
-          <AiOutlineHome size={20} className='icons' />
+          <AiOutlineHome size={29} className='icons' />
           </Link>
-          <IoIosAddCircleOutline size={20} className='icons' />
-          <AiOutlineUser size={20} className='icons' />
+          <IoIosAddCircleOutline 
+          size={29} className='icons'/>
+          <AiOutlineUser size={30} className='icons' />
         </div>
     </div>
   )
