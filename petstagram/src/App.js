@@ -106,27 +106,17 @@ function App() {
 
   return (
     <div className='App'>
-<<<<<<< HEAD
-      <nav>{location.pathname === '/' ? null : <Navigation />}</nav>
-=======
       <nav>
         {location.pathname === '/' ? null : <Navigation /> &&
           location.pathname === '/sign-up' ? null : (
           <Navigation />
         )}
       </nav>
->>>>>>> cdcf956 (signup hides navbar)
       <main>
         <Routes>
-<<<<<<< HEAD
-          <Route path='/main' element={<Main data={data} />} />
-          <Route
-            path='/'
-=======
           <Route path='/' element={<Main data={data} />} />
           <Route
             path='/login'
->>>>>>> 3be8a2d (merge conflicts)
             element={
               <Login handleLogin={handleLogin} validateLogin={validateLogin} />
             }
