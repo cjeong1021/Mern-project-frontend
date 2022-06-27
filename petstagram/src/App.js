@@ -10,24 +10,12 @@ import SignUp from './SignUp/SignUp';
 
 function App() {
   const [data, setData] = useState([]);
-<<<<<<< HEAD
-  const location = useLocation();
-  const getData = () => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/posts')
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-=======
 
   const getData = () => {
     axios
       .get('http://localhost:8000/petstagram/posts')
       .then((res) => {
         setData(res.data);
->>>>>>> 3be8a2d (merge conflicts)
       })
       .catch((err) => {
         console.log(err);

@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom';
 const Login = (props) => {
   return (
     <form className='login'>
-      <div className='logoBox'>
-        <h1>Petstagram</h1>
-        <h4>Connect with pets on Petstagram</h4>
-      </div>
-
       <div className='loginBox'>
         <input
           onChange={(e) => props.handleLogin(e)}
