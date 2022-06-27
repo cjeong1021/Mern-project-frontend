@@ -7,9 +7,6 @@ const Login = (props) => {
         <form>
         <div className="loginBox">
             
-            <div className="header">
-            </div>
-
             <input onChange={(e) => props.handleLogin(e)} placeholder="Id" name="userId"/>
             <input onChange={(e) => props.handleLogin(e)} placeholder="Password" name="password"/>
 

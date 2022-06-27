@@ -20,7 +20,7 @@ const SignUp = (props) => {
                 <input onChange={(e) => props.handleSignUp(e)} placeholder="Password" name="password" />
                 <input onChange={(e) => props.handleSignUp(e)} placeholder="Email address" name="email" />
             
-            <Link to="/login">
+            <Link to="/">
             <button onClick={() => props.createUser()} className="submitBtn">Submit</button>
             </Link>
 
