@@ -7,6 +7,7 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
+import PostInput from './PostInput/PostInput';
 
 function App() {
   const [data, setData] = useState([])
@@ -91,6 +92,38 @@ function App() {
         axios.post('http://localhost:3000/api/users/', signUpForm)
       }
 
+      //Post Input
+  const [postInputForm, setPostInputForm] = useState({
+    title: "",
+    date: "",
+    location: "",
+    description: "",
+    complete: false,
+    coordinates: null,
+    requested: false
+  })
+
+  const handlePostChange = (e) => {  
+    setPostInputForm({
+      ...postInputForm,
+      [e.target.name]: e.target.value,
+      complete: false,
+      coordinates: {},
+      requested: false   
+    })
+  }
+
+  const [postList, setPostList] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/posts')
+    .then(res => setPostList(res.data))
+  },[postList])
+
+  const saveUserPost = () => {
+    axios.post(`http://localhost:3000/api/posts/userId/${user.userId}`, postInputForm)   
+  }
+
 
   return (
     <div className='App'>
@@ -103,6 +136,7 @@ function App() {
           <Route path="/main" element={<Main data={data}/>}/>
           <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
+          <Route path="/post-input" element={<PostInput postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
         </Routes>
       </main>
     </div>

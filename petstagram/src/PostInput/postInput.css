@@ -1,0 +1,31 @@
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    background-color: rgb(252, 230, 202);
+    border-radius: 30px;
+    top: 50%;
+    position: absolute;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+input {
+    margin-bottom: 20px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.description {
+    height: 150px;
+}
+
+.submitBtn {
+    height: 50px;
+    font-size: 20px;
+    width: 400px;
+    margin-bottom: 0;
+}

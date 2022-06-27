@@ -6,12 +6,19 @@ const Login = (props) => {
     return(
         <form className="login">
             
-        <div className="logoBox">
+        <div
+        className="logoBox" 
+        data-aos="fade-up"
+        data-aos-duration="3000">
             <h1>Petstagram</h1>
             <h4>Connect with pets on Petstagram</h4>
         </div>
         
-        <div className="loginBox">
+        <div className="loginBox"
+        data-aos="fade-left"
+        data-aos-anchor="#example-anchor"
+        data-aos-offset="500"
+        data-aos-duration="500">
             
             <input onChange={(e) => props.handleLogin(e)} placeholder="Id" name="userId"/>
             <input onChange={(e) => props.handleLogin(e)} placeholder="Password" name="password"/>

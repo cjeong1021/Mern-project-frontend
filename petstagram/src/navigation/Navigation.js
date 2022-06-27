@@ -23,7 +23,9 @@ const Navigation = () => {
           <Link to="/main" style={{color: 'inherit'}} >
           <AiOutlineHome size={28} className='icons' />
           </Link>
+          <Link to="/post-input" style={{color: 'inherit'}} >
           <IoIosAddCircleOutline size={28} className='icons' />
+          </Link>
           <AiOutlineUser size={28} className='icons' />
         </div>
     </div>
