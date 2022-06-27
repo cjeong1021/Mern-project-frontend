@@ -6,7 +6,6 @@ const SignUp = (props) => {
     return(
         <div className="signUpBox">
             <div className="header">
-            <h2>Sign Up</h2>
             </div>
 
             <div className="name">  
