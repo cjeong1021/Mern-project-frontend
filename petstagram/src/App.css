@@ -1,4 +1,6 @@
 .App {
-  max-width: 1000px;
   margin: 0 auto;
+}
+#root {
+  background-color: rgb(246, 240, 240);
 }

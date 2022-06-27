@@ -12,6 +12,7 @@
     margin-top: 30px;
     display: grid;
     grid-template-rows: 10% 50% 7% 33% ;
+    background-color: white;
 }
 .postTop{
     display: flex;

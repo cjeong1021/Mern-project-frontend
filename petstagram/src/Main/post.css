@@ -1,12 +1,14 @@
 .postBox {
     width: 700px;
     height: 1000px;
-    border: 0.5px rgb(172, 172, 172) solid;
+    border: 0.5px rgb(165, 162, 162) solid;
     border-radius: 30px;
     margin: 0 auto;
     margin-top: 30px;
     display: grid;
     grid-template-rows: 10% 50% 10% 30% ;
+    max-width: 1000px;
+    background-color: white;
 }
 .postTop{
     display: flex;
@@ -25,7 +27,13 @@
     max-height: 100%;
     object-fit: cover;
 }
-
+.likeButton{
+    border: none;
+    background-color: white;
+    display: inline-block;
+    height: 40px;
+    cursor: pointer;
+}
 .postIcon {
     grid-row: 3;
     display: flex;

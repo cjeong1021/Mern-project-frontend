@@ -5,6 +5,8 @@ import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
 
 const Post = ({post}) => {
+  const [isLiked, setIsLiked] = useState(false);
+
 
   return (
     <div className=''>
@@ -15,8 +17,14 @@ const Post = ({post}) => {
           </div>
         <img className='postImage' src='https://www.thesprucepets.com/thmb/jschPYYgX2Z2R04YkFt_HBIblJw=/1566x1044/filters:fill(auto,1)/GettyImages-1214648223-a185de9c88984ca69f1ac720bdea6efe.jpg' alt='#' />
         <div className='postIcon'>
-            <IoIosHeartEmpty size={40}/>
-            <BsBookmark size={35} />
+          <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
+           {isLiked
+              ? <IoIosHeart size={40} />
+              : <IoIosHeartEmpty size={40} />
+            }
+          </p>
+          
+          <BsBookmark size={35} />
         </div>
     </div>
     </div>
