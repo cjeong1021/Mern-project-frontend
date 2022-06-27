@@ -116,12 +116,12 @@ function App() {
   const [postList, setPostList] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/posts')
+    axios.get('http://localhost:8000/petstagram/posts')
     .then(res => setPostList(res.data))
   },[postList])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:3000/api/posts/userId/${user.userId}`, postInputForm)   
+    axios.post(`http://localhost:8000/api/posts/${user.userId}`, postInputForm)   
   }
 
 
