@@ -1,3 +1,9 @@
+.postInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .inputBox {
     display: flex;
     flex-direction: column;
