@@ -6,10 +6,11 @@ import {Link} from 'react-router-dom'
 const PostInput = (props) => {
 
     return(
+        <div className="postInput">
         <div className="inputBox">
 
             <input onChange={props.handlePostChange} placeholder="Title" name="title"/>
-            <input onChange={props.handlePostChange} placeholder="Date" name="date"/>
+            <input onChange={props.handlePostChange} placeholder="Picture URL" name="picture"/>
             <input onChange={props.handlePostChange} className="description" placeholder="Description" name="description"/>
 
             <Link to="/main">
@@ -17,6 +18,7 @@ const PostInput = (props) => {
             </Link>
         
 
+        </div>
         </div>
     )
 }
