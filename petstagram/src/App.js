@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import {Route, Routes, Link} from 'react-router-dom'
+import { Route, Routes, useLocation} from 'react-router-dom'
 import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
@@ -10,7 +10,7 @@ import SignUp from './SignUp/SignUp';
 
 function App() {
   const [data, setData] = useState([])
-  
+  const location = useLocation();
     const getData = () => {
       axios.get("https://jsonplaceholder.typicode.com/posts")
       .then(res => {
@@ -95,12 +95,12 @@ function App() {
   return (
     <div className='App'>
       <nav>
-        <Navigation />
+      {location.pathname === '/' ? null : <Navigation />}
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<Main data={data}/>}/>
-          <Route path="/login" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
+          <Route path="/main" element={<Main data={data}/>}/>
+          <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
         </Routes>
       </main>

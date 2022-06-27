@@ -14,7 +14,7 @@ const Login = (props) => {
             <input onChange={(e) => props.handleLogin(e)} placeholder="Id" name="userId"/>
             <input onChange={(e) => props.handleLogin(e)} placeholder="Password" name="password"/>
 
-            <Link to="/">
+            <Link to="/main">
             <button className="loginBtn" onClick={(e) => props.validateLogin(e)}>Log In</button>
             </Link>
             
