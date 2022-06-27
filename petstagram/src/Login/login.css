@@ -1,5 +1,18 @@
 .login{
     height: 100vh;
+    background-image: "/image/catdog.png";
+}
+
+h1 {
+    color: rgb(255, 163, 26);
+}
+
+.logoBox {
+    top: 50%;
+    position: absolute;
+    -ms-transform: translateY(-50%);
+    left: 50px;
+    transform: translateY(-50%);
 }
 
 .loginBox {
@@ -7,11 +20,11 @@
     flex-direction: column;
     justify-content: center;
     padding: 50px;
-    background-color: antiquewhite;
+    background-color: rgb(252, 230, 202);
     border-radius: 30px;
     top: 50%;
     position: absolute;
-    left: 50%;
+    right: 50px;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -50,3 +63,8 @@ input {
     border-radius: 8px;
     background-color: rgb(238, 219, 91);
 }
+/* 
+img {
+    width: 300px;
+    
+} */
