@@ -9,21 +9,20 @@ const Navigation = () => {
   return (
     <div className='navBar'>
       <div className='logo'>
-        <Link to="/" style={{color: 'inherit', textDecoration:'none'}} >
+      <Link to="/" style={{textDecoration:'none',color: 'inherit'}} >
         <h3><FaPaw size={25}/> Petstagram</h3>
-        </Link>
+      </Link>
       </div>
         <form>
-          <IoIosSearch size={25}/>
+          <IoIosSearch />
             <input type="search" className='searchBar' placeholder='Search'/>
         </form>
         <div >
           <Link to="/" style={{color: 'inherit'}} >
-          <AiOutlineHome size={29} className='icons' />
+          <AiOutlineHome size={28} className='icons' />
           </Link>
-          <IoIosAddCircleOutline 
-          size={29} className='icons'/>
-          <AiOutlineUser size={30} className='icons' />
+          <IoIosAddCircleOutline size={28} className='icons' />
+          <AiOutlineUser size={28} className='icons' />
         </div>
     </div>
   )

@@ -1,8 +1,7 @@
 import React from 'react'
-import Post from '../Post/Post'
+import Post from './Post'
 
 const Main = ({data}) => {
-  console.log(data);
   const postData = data.map( post => {
     return (
       <Post post={post} />
