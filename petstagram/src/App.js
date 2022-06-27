@@ -10,6 +10,7 @@ import SignUp from './SignUp/SignUp';
 
 function App() {
   const [data, setData] = useState([]);
+<<<<<<< HEAD
   const location = useLocation();
   const getData = () => {
     axios
@@ -19,6 +20,14 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+=======
+
+  const getData = () => {
+    axios
+      .get('http://localhost:8000/petstagram/posts')
+      .then((res) => {
+        setData(res.data);
+>>>>>>> 3be8a2d (merge conflicts)
       })
       .catch((err) => {
         console.log(err);
@@ -101,15 +110,23 @@ function App() {
       <nav>{location.pathname === '/' ? null : <Navigation />}</nav>
 =======
       <nav>
-      {location.pathname === '/' ? null : <Navigation /> && location.pathname === '/sign-up' ? null : <Navigation />}
-
+        {location.pathname === '/' ? null : <Navigation /> &&
+          location.pathname === '/sign-up' ? null : (
+          <Navigation />
+        )}
       </nav>
 >>>>>>> cdcf956 (signup hides navbar)
       <main>
         <Routes>
+<<<<<<< HEAD
           <Route path='/main' element={<Main data={data} />} />
           <Route
             path='/'
+=======
+          <Route path='/' element={<Main data={data} />} />
+          <Route
+            path='/login'
+>>>>>>> 3be8a2d (merge conflicts)
             element={
               <Login handleLogin={handleLogin} validateLogin={validateLogin} />
             }
