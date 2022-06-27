@@ -10,13 +10,16 @@ const SignUp = (props) => {
             </div>
 
             <div className="name">  
-                <input onChange={(e) => props.handleSignUp(e)} className="nameInput" placeholder="First name" name="firstName" />
-                <input onChange={(e) => props.handleSignUp(e)} className="nameInput" placeholder="Last name" name="lastName" />
+                <input onChange={(e) => props.handleSignUp(e)} className="nameInput" placeholder="Name" name="name" />
                 <input onChange={(e) => props.handleSignUp(e)} className="ageInput" placeholder="Age" name="age" />
             </div>
-            <input onChange={(e) => props.handleSignUp(e)} placeholder="Id" name="userId" />
-            <input onChange={(e) => props.handleSignUp(e)} placeholder="Password" name="password" />
-            <input onChange={(e) => props.handleSignUp(e)} placeholder="Email address" name="email" />
+                <input onChange={(e) => props.handleSignUp(e)} placeholder="Type" name="type" />
+                <input onChange={(e) => props.handleSignUp(e)} placeholder="Breed" name="breed" />
+                <input onChange={(e) => props.handleSignUp(e)} placeholder="Introduction" name="description" />
+                <input onChange={(e) => props.handleSignUp(e)} placeholder="URL" name="picture" />
+                <input onChange={(e) => props.handleSignUp(e)} placeholder="Id" name="userId" />
+                <input onChange={(e) => props.handleSignUp(e)} placeholder="Password" name="password" />
+                <input onChange={(e) => props.handleSignUp(e)} placeholder="Email address" name="email" />
             
             <Link to="/login">
             <button onClick={() => props.createUser()} className="submitBtn">Submit</button>
