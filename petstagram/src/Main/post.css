@@ -9,6 +9,7 @@
     grid-template-rows: 10% 50% 4% 6% 30% ;
     max-width: 1000px;
     background-color: white;
+    position: relative;
 }
 .postTop{
     display: flex;
@@ -68,6 +69,8 @@
     width: 95%;
     background-color: rgb(246, 240, 240);
     border: none;
+    position: absolute;
+    bottom: 0;
 }
 .commentSection {
     white-space: nowrap; 
@@ -75,6 +78,7 @@
     overflow: hidden;
     text-overflow: ellipsis; 
     margin-left: 1rem;
+    margin-top: 1rem;
 }
 .saveButton{
     margin-right: .8rem;
