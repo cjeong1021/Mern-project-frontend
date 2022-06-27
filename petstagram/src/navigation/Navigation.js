@@ -11,7 +11,7 @@ const Navigation = () => {
     }}>
     <div className='navBar'>
       <div className='logo'>
-      <Link to="/" style={{textDecoration:'none',color: 'inherit'}} >
+      <Link to="/main" style={{textDecoration:'none',color: 'inherit'}} >
         <h3><FaPaw size={25}/> Petstagram</h3>
       </Link>
       </div>
@@ -20,7 +20,7 @@ const Navigation = () => {
             <input type="search" className='searchBar' placeholder='Search'/>
         </form>
         <div >
-          <Link to="/" style={{color: 'inherit'}} >
+          <Link to="/main" style={{color: 'inherit'}} >
           <AiOutlineHome size={28} className='icons' />
           </Link>
           <IoIosAddCircleOutline size={28} className='icons' />
