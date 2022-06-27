@@ -7,7 +7,7 @@ const SignUp = (props) => {
         <div className="signUpBox">
             <div className="header">
             </div>
-
+         <div className="signupMain">
             <div className="name">  
                 <input onChange={(e) => props.handleSignUp(e)} className="nameInput" placeholder="Name" name="name" />
                 <input onChange={(e) => props.handleSignUp(e)} className="ageInput" placeholder="Age" name="age" />
@@ -19,7 +19,7 @@ const SignUp = (props) => {
                 <input onChange={(e) => props.handleSignUp(e)} placeholder="Id" name="userId" />
                 <input onChange={(e) => props.handleSignUp(e)} placeholder="Password" name="password" />
                 <input onChange={(e) => props.handleSignUp(e)} placeholder="Email address" name="email" />
-            
+            </div>
             <Link to="/">
             <button onClick={() => props.createUser()} className="submitBtn">Submit</button>
             </Link>
