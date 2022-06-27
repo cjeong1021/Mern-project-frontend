@@ -8,7 +8,6 @@ const Login = (props) => {
         <div className="loginBox">
             
             <div className="header">
-            <h2>Login or create account</h2>
             </div>
 
             <input onChange={(e) => props.handleLogin(e)} placeholder="Id" name="userId"/>
