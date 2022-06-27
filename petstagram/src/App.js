@@ -13,9 +13,12 @@ function App() {
 
   const getData = () => {
     axios
-      .get('http://localhost:8000/petstagram/posts')
+      .get('https://jsonplaceholder.typicode.com/posts')
       .then((res) => {
         setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
       })
       .catch((err) => {
         console.log(err);
