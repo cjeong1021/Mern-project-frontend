@@ -97,7 +97,14 @@ function App() {
 
   return (
     <div className='App'>
+<<<<<<< HEAD
       <nav>{location.pathname === '/' ? null : <Navigation />}</nav>
+=======
+      <nav>
+      {location.pathname === '/' ? null : <Navigation /> && location.pathname === '/sign-up' ? null : <Navigation />}
+
+      </nav>
+>>>>>>> cdcf956 (signup hides navbar)
       <main>
         <Routes>
           <Route path='/main' element={<Main data={data} />} />

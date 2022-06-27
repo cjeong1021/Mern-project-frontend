@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const Login = (props) => {
     return(
-        <form>
+        <form className="login">
         <div className="loginBox">
             
             <div className="header">
