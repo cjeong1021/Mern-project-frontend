@@ -11,14 +11,25 @@ const Post = ({post}) => {
     <div className=''>
     <div className='postBox'>
           <div className='postTop'>
-            <BiUserCircle className='userName' size={80}/>
+            <BiUserCircle className='userName' size={70}/>
             <p className='userName'>Sonam</p>
           </div>
+
         <img className='postImage' src='https://www.thesprucepets.com/thmb/jschPYYgX2Z2R04YkFt_HBIblJw=/1566x1044/filters:fill(auto,1)/GettyImages-1214648223-a185de9c88984ca69f1ac720bdea6efe.jpg' alt='#' />
         <div className='postIcon'>
             <IoIosHeartEmpty size={40} />
             <BsBookmark size={35} />
         </div>
+
+        <div className='commentBox'>
+          <div className='commentList'>
+            <p>Hello,</p>
+          </div>
+          <input className='commentInput' placeholder='Add a comments'/>
+        </div>
+
+        
+
     </div>
     </div>
 
