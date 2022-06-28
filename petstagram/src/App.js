@@ -46,7 +46,7 @@ function App() {
       firstName: "",
       lastName: "",
       age: null,
-      userId: null,
+      userid: null,
       password: "",
       email: "",
       logIn: false
@@ -54,7 +54,7 @@ function App() {
 
       //Login
       const [loginForm, setLoginForm] = useState({
-        userId: "",
+        userid: "",
         password: ""
       })
     
@@ -66,7 +66,7 @@ function App() {
       }
     
       const validateLogin = () => {
-        const user = userData.find((user) => user.userid === loginForm.userId)
+        const user = userData.find((user) => user.userid === loginForm.userid)
         if(user.password == loginForm.password) {
           console.log("welcome");
           const index = userData.indexOf(user);
