@@ -70,10 +70,15 @@
     background-color: rgb(246, 240, 240);
     border: none;
 <<<<<<< HEAD
+<<<<<<< HEAD
     position: absolute;
     bottom: 0;
 =======
 >>>>>>> 5a79f9d (postbox adjustments)
+=======
+    position: absolute;
+    bottom: 0;
+>>>>>>> 824880c (comment at bottom of div)
 }
 .commentSection {
     white-space: nowrap; 
@@ -82,9 +87,13 @@
     text-overflow: ellipsis; 
     margin-left: 1rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-top: 1rem;
 =======
 >>>>>>> 5a79f9d (postbox adjustments)
+=======
+    margin-top: 1rem;
+>>>>>>> 824880c (comment at bottom of div)
 }
 .saveButton{
     margin-right: .8rem;
