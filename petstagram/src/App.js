@@ -8,8 +8,8 @@ import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import Upload from './PostInput/Upload';
-import PostInput from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
+
 
 function App() {
   const [data, setData] = useState([])
