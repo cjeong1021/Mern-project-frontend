@@ -4,7 +4,6 @@ import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import { BsBookmark } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
-import EllipsisText from "react-ellipsis-text"
 
 const Post = () => {
   const [isLiked, setIsLiked] = useState(false);

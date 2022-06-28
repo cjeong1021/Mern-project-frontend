@@ -140,7 +140,6 @@ function App() {
           <Route path="/post-input" element={<PostInput postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
           <Route path="user-profile" element={<UserProfile data={data} />} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
-          <Route path="/user/:id" element={<User />}/>
         </Routes>
       </main>
     </div>

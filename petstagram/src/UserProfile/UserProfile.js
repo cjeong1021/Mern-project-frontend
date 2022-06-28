@@ -13,8 +13,6 @@ const UserProfile = (props) => {
           <h2>UserName</h2>
           <div className="stats">
             <h5>Posts</h5>
-            <h5>Followers</h5>
-            <h5>Following</h5>
           </div>
           <div className="description">
             <h2>Description Part</h2>
