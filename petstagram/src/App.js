@@ -46,7 +46,7 @@ function App() {
       firstName: "",
       lastName: "",
       age: null,
-      userid: null,
+      username: null,
       password: "",
       email: "",
       logIn: false
@@ -54,7 +54,7 @@ function App() {
 
       //Login
       const [loginForm, setLoginForm] = useState({
-        userid: "",
+        username: "",
         password: ""
       })
     
@@ -66,7 +66,7 @@ function App() {
       }
     
       const validateLogin = () => {
-        const user = userData.find((user) => user.userid === loginForm.userid)
+        const user = userData.find((user) => user.username === loginForm.username)
         if(user.password == loginForm.password) {
           console.log("welcome");
           const index = userData.indexOf(user);
@@ -84,7 +84,7 @@ function App() {
         firstName: "",
         lastName: "",
         age: "",
-        userid: "",
+        username: "",
         password: "",
         email: "",
         logIn: false
@@ -128,10 +128,10 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:8000/petstagram/posts')
     .then(res => setPostList(res.data))
-  },[postList])
+  },[])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:8000/petstagram/posts/${user.userid}`, postInputForm)   
+    axios.post(`http://localhost:8000/petstagram/posts/${user.username}`, postInputForm)   
   }
 
 

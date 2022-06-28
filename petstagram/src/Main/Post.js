@@ -1,13 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import { BsBookmark } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
 import Comment from './Comment'
+import axios from 'axios'
 
-const Post = () => {
+const Post = ({post}) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [userData, setUserData] = useState({});
+
+  const getUser = () => {
+    axios
+      .get(`http://localhost:8000/petstagram/users/${post.user}`)
+      .then((res) => {
+        setUserData(res.data);
+      });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <div className=''>
@@ -15,10 +29,10 @@ const Post = () => {
           <div className='postTop'>
             <Link style={{color:'inherit'}} to="/user/:id">
             <BiUserCircle className='userName' size={80}/>
-            <p style={{marginTop:"1.2rem"}} className='userName'>Sonam</p>
+            <p style={{marginTop:"1.2rem"}} className='userName'>{userData.name}</p>
             </Link>
           </div>
-        <img className='postImage' src='https://www.thesprucepets.com/thmb/jschPYYgX2Z2R04YkFt_HBIblJw=/1566x1044/filters:fill(auto,1)/GettyImages-1214648223-a185de9c88984ca69f1ac720bdea6efe.jpg' alt='#' />
+        <img className='postImage' src={post.picture} alt='#' />
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
            {isLiked
