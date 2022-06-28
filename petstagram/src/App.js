@@ -7,11 +7,7 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
-<<<<<<< HEAD
-import PostInput from './PostInput/Upload';
-=======
 import Upload from './PostInput/Upload';
->>>>>>> 542ab88 (user page add  pictures)
 import UserProfile from './UserProfile/UserProfile';
 
 function App() {
@@ -141,10 +137,7 @@ function App() {
 
   return (
     <div className='App'>
-      <nav>
-      {location.pathname === '/' ? null : <Navigation /> && location.pathname === '/sign-up' ? null : <Navigation />}
-
-      </nav>
+      
       <main>
         <Routes>
           <Route path="/main" element={<Main data={data}/>}/>

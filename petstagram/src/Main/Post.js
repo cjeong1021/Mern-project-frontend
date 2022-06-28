@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
-import { BsBookmark } from 'react-icons/bs'
+import { BsBookmark, BsFillBookmarkCheckFill } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
 import Comment from './Comment'
@@ -22,9 +22,10 @@ const Post = ({post}) => {
   useEffect(() => {
     getUser();
   }, []);
+  const [isSaved, setIsSaved] = useState(false)
 
   return (
-    <div className=''>
+    <div className='mainPost'>
     <div className='postBox'>
           <div className='postTop'>
             <Link style={{color:'inherit'}} to="/user/:id">
@@ -40,8 +41,12 @@ const Post = ({post}) => {
               : <IoIosHeartEmpty className='likeHeart' size={40} />
             }
           </p>
-          
-          <BsBookmark className='saveButton' size={35} />
+          <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
+          {isSaved
+            ? <BsFillBookmarkCheckFill className='saveButton' size={35} />
+            : <BsBookmark className='saveButton' size={35} /> 
+          }
+          </p>
         </div>
         <div className='captionSection'> 
             <strong>Likes</strong> : ###
