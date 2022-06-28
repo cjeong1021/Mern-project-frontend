@@ -10,7 +10,6 @@ import { BiUserCircle } from "react-icons/bi";
 const Navigation = () => {
   return (
     <div
-      className="fullNav"
       style={{
         backgroundColor: "white",
         borderBottom: ".5px solid rgb(172, 172, 172)",
@@ -28,6 +27,21 @@ const Navigation = () => {
           <IoIosSearch />
           <input type="search" className="searchBar" placeholder="Search" />
         </form>
+        <div>
+          <Link to="/main" style={{ color: "inherit" }}>
+            <AiOutlineHome size={28} className="icons" />
+          </Link>
+          <Link to="/post-input" style={{ color: "inherit" }}>
+            <IoIosAddCircleOutline size={28} className="icons" />
+          </Link>
+          <Link to="/user-profile" style={{ color: "inherit" }}>
+            <AiOutlineUser size={28} className="icons" />
+          </Link>
+        </div>
+        <form>
+          <IoIosSearch />
+          <input type="search" className="searchBar" placeholder="Search" />
+        </form>
         <div className="navbar-icons">
           <Link to="/main" style={{ color: "inherit" }}>
             <AiOutlineHome size={28} className="icons" />
@@ -36,21 +50,21 @@ const Navigation = () => {
             <IoIosAddCircleOutline size={28} className="icons" />
           </Link>
           <div className="dropdown">
-          <Dropdown>
-            <Dropdown.Toggle variant="null" id="dropdown-basic">
-              <BiUserCircle className="profile-icon" />
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">
-                <Link to="/user-profile" style={{ color: "inherit" }}>
-                  <AiOutlineUser size={28} className="icons" /> Profile
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Sign Out</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Liked Posts</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Saved Posts</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+            <Dropdown>
+              <Dropdown.Toggle variant="null" id="dropdown-basic">
+                <BiUserCircle className="profile-icon" />
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">
+                  <Link to="/user-profile" style={{ color: "inherit" }}>
+                    <AiOutlineUser size={28} className="icons" /> Profile
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Sign Out</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Liked Posts</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Saved Posts</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </div>
       </div>

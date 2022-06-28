@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
-import { BsBookmark } from 'react-icons/bs'
+import { BsBookmark, BsFillBookmarkCheckFill } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
 import Comment from './Comment'
@@ -9,6 +9,7 @@ import axios from 'axios'
 
 const Post = ({post}) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [isSaved, setIsSaved] = useState(false)
   const [userData, setUserData] = useState({});
 
   const getUser = () => {
@@ -22,9 +23,10 @@ const Post = ({post}) => {
   useEffect(() => {
     getUser();
   }, []);
+  const [isSaved, setIsSaved] = useState(false)
 
   return (
-    <div className=''>
+    <div className='mainPost'>
     <div className='postBox'>
           <div className='postTop'>
             <Link style={{color:'inherit'}} to="/user/:id">
@@ -40,8 +42,12 @@ const Post = ({post}) => {
               : <IoIosHeartEmpty className='likeHeart' size={40} />
             }
           </p>
-          
-          <BsBookmark className='saveButton' size={35} />
+          <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
+          {isSaved
+            ? <BsFillBookmarkCheckFill className='saveButton' size={35} />
+            : <BsBookmark className='saveButton' size={35} /> 
+          }
+          </p>
         </div>
         <div className='captionSection'> 
             <strong>Likes</strong> : ###
@@ -51,7 +57,7 @@ const Post = ({post}) => {
             </p>
         </div>
         <div >
-          <p className='commentSection'> <strong>*User*</strong> :Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
+          <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
           </div>
           <br />
           <Comment />
