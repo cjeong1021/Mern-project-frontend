@@ -7,7 +7,11 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
+<<<<<<< HEAD
 import PostInput from './PostInput/Upload';
+=======
+import Upload from './PostInput/Upload';
+>>>>>>> 542ab88 (user page add  pictures)
 import UserProfile from './UserProfile/UserProfile';
 
 function App() {
@@ -146,7 +150,7 @@ function App() {
           <Route path="/main" element={<Main data={data}/>}/>
           <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
-          <Route path="/post-input" element={<PostInput postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
+          <Route path="/post-input" element={<Upload postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
           <Route path="user-profile" element={<UserProfile data={data} />} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
         </Routes>
