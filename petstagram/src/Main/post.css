@@ -78,8 +78,11 @@
     width: 95%;
     background-color: rgb(246, 240, 240);
     border: none;
+<<<<<<< HEAD
     position: absolute;
     bottom: 0;
+=======
+>>>>>>> 5a79f9d (postbox adjustments)
 }
 .commentSection {
     white-space: nowrap; 
@@ -87,7 +90,10 @@
     overflow: hidden;
     text-overflow: ellipsis; 
     margin-left: 1rem;
+<<<<<<< HEAD
     margin-top: 1rem;
+=======
+>>>>>>> 5a79f9d (postbox adjustments)
 }
 .saveButton{
     margin-right: .8rem;
