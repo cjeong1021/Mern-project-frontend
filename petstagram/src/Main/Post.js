@@ -5,6 +5,7 @@ import { BsBookmark } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
 import Comment from './Comment'
+import EllipsisText from "react-ellipsis-text"
 
 const Post = () => {
   const [isLiked, setIsLiked] = useState(false);
@@ -28,6 +29,18 @@ const Post = () => {
           </p>
           
           <BsBookmark className='saveButton' size={35} />
+        </div>
+        <div className='captionSection'> 
+            <strong>Likes</strong> : ###
+            <br />
+            <p className='caption'>
+            <strong>Caption</strong> : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolor nobis laborum quod ut at odio assumenda autem illum quo, exercitationem facilis ad blanditiis, illo earum repellat fugit dignissimos harum perspiciatis iste minus nisi voluptatum quidem cupiditate. Harum, eveniet rem!
+            </p>
+        </div>
+        <div >
+          <input className='comment' type="text" placeholder='comment...' />
+          <br />
+          <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
         </div>
         <div className='captionSection'> 
             <strong>Likes</strong> : ###
