@@ -1,10 +1,7 @@
-* {
-  border: 1px red soild;
-}
-
 .App {
   margin: 0 auto;
-  border: 1px red soild;
+  display: grid;
+  grid-template-rows: 80px 1fr;
 }
 #root {
   background-color: rgb(246, 240, 240);

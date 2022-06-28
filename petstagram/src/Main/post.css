@@ -1,6 +1,7 @@
-/* .mainPost {
-    margin-top: 10rem;
-} */
+.mainPost{
+    grid-row: 2;
+
+}
 .postBox {
     width: 700px;
     height: 1000px;
@@ -12,6 +13,7 @@
     grid-template-rows: 10% 50% 4% 6% 30% ;
     max-width: 1000px;
     background-color: white;
+    position: relative;
 }
 .postTop{
     display: flex;
