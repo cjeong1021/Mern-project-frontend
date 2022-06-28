@@ -28,29 +28,14 @@ const Navigation = () => {
           <IoIosSearch />
           <input type="search" className="searchBar" placeholder="Search" />
         </form>
-        <div>
+        <div className="asdasd">
           <Link to="/main" style={{ color: "inherit" }}>
             <AiOutlineHome size={28} className="icons" />
           </Link>
           <Link to="/post-input" style={{ color: "inherit" }}>
             <IoIosAddCircleOutline size={28} className="icons" />
           </Link>
-          <Link to="/user-profile" style={{ color: "inherit" }}>
-            <AiOutlineUser size={28} className="icons" />
-          </Link>
-        </div>
-        <form>
-          <IoIosSearch />
-          <input type="search" className="searchBar" placeholder="Search" />
-        </form>
-        <div className="navbar-icons">
-          <Link to="/main" style={{ color: "inherit" }}>
-            <AiOutlineHome size={28} className="icons" />
-          </Link>
-          <Link to="/post-input" style={{ color: "inherit" }}>
-            <IoIosAddCircleOutline size={28} className="icons" />
-          </Link>
-          <div className="dropdown">
+          <div className="asd">
             <Dropdown>
               <Dropdown.Toggle variant="null" id="dropdown-basic">
                 <BiUserCircle className="profile-icon" />
