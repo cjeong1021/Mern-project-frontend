@@ -14,7 +14,7 @@ function App() {
   const [data, setData] = useState([])
   const location = useLocation();
     const getData = () => {
-      axios.get("https://jsonplaceholder.typicode.com/posts")
+      axios.get("http://localhost:8000/petstagram/posts")
       .then(res => {
         setData(res.data)
       })
@@ -42,7 +42,7 @@ function App() {
 
       //Login
       const [loginForm, setLoginForm] = useState({
-        userId: "",
+        userid: "",
         password: ""
       })
     
@@ -54,14 +54,14 @@ function App() {
       }
     
       const validateLogin = () => {
-        const user = userData.find((user) => user.userId === loginForm.userId)
+        const user = userData.find((user) => user.userid === loginForm.userid)
         if(user.password == loginForm.password) {
           console.log("welcome");
           setUser({
             firstName: user.firstName,
             lastName: user.lastName,
             age: user.age,
-            userId: user.userId,
+            userid: user.userid,
             password: user.password,
             email: user.email,
             logIn: true,
@@ -76,7 +76,7 @@ function App() {
         firstName: "",
         lastName: "",
         age: "",
-        userId: "",
+        userid: "",
         password: "",
         email: "",
         logIn: false
@@ -90,39 +90,40 @@ function App() {
       }
 
       const createUser = () => {
-        axios.post('http://localhost:3000/api/users/', signUpForm)
+        axios.post('http://localhost:8000/petstagram/users/', signUpForm)
       }
 
       //Post Input
   const [postInputForm, setPostInputForm] = useState({
     title: "",
-    date: "",
-    location: "",
+    picture: "",
     description: "",
-    complete: false,
-    coordinates: null,
-    requested: false
+    // date: "",
+    // location: "",
+    // complete: false,
+    // coordinates: null,
+    // requested: false
   })
 
   const handlePostChange = (e) => {  
     setPostInputForm({
       ...postInputForm,
       [e.target.name]: e.target.value,
-      complete: false,
-      coordinates: {},
-      requested: false   
+      // complete: false,
+      // coordinates: {},
+      // requested: false   
     })
   }
 
   const [postList, setPostList] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/posts')
+    axios.get('http://localhost:8000/petstagram/posts')
     .then(res => setPostList(res.data))
   },[postList])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:3000/api/posts/userId/${user.userId}`, postInputForm)   
+    axios.post(`http://localhost:8000/petstagram/posts/${user.userid}`, postInputForm)   
   }
 
 
