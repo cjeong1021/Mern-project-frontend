@@ -131,7 +131,7 @@ function App() {
   },[])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:8000/petstagram/posts/${user.username}`, postInputForm)   
+    axios.post(`http://localhost:8000/petstagram/posts/${user._id}`, postInputForm)   
   }
 
 
