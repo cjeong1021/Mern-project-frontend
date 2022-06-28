@@ -137,10 +137,7 @@ function App() {
 
   return (
     <div className='App'>
-      <nav>
-      {location.pathname === '/' ? null : <Navigation /> && location.pathname === '/sign-up' ? null : <Navigation />}
-
-      </nav>
+      
       <main>
         <Routes>
           <Route path="/main" element={<Main data={data}/>}/>
