@@ -8,10 +8,7 @@ import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import PostInput from './PostInput/Upload';
-<<<<<<< HEAD
-=======
 import UserProfile from './UserProfile/UserProfile';
->>>>>>> a6aa950ad0d12ac6ee6d55c1b1e25002b76e5018
 
 function App() {
   const [data, setData] = useState([])

@@ -9,9 +9,7 @@ import axios from 'axios'
 
 const Post = ({post}) => {
   const [isLiked, setIsLiked] = useState(false);
-<<<<<<< HEAD
   const [isSaved, setIsSaved] = useState(false)
-=======
   const [userData, setUserData] = useState({});
 
   const getUser = () => {
@@ -25,7 +23,6 @@ const Post = ({post}) => {
   useEffect(() => {
     getUser();
   }, []);
->>>>>>> a6aa950ad0d12ac6ee6d55c1b1e25002b76e5018
 
   return (
     <div className='mainPost'>
