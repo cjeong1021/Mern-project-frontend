@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./navigation.css";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
@@ -6,6 +7,15 @@ import { FaPaw } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { BiUserCircle } from "react-icons/bi";
+=======
+import React from 'react'
+import './navigation.css'
+import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
+import { IoIosAddCircleOutline, IoIosSearch } from 'react-icons/io'
+import { FaPaw } from 'react-icons/fa'
+import { TiShoppingCart } from 'react-icons/ti'
+import { Link} from 'react-router-dom'
+>>>>>>> Jun
 
 const Navigation = () => {
   return (
@@ -31,8 +41,16 @@ const Navigation = () => {
           <Link to="/main" style={{ color: "inherit" }}>
             <AiOutlineHome size={28} className="icons" />
           </Link>
+<<<<<<< HEAD
           <Link to="/post-input" style={{ color: "inherit" }}>
             <IoIosAddCircleOutline size={28} className="icons" />
+=======
+          <Link to="/shop" style={{color: 'inherit'}} >
+          <TiShoppingCart size={28} className='icons' />
+          </Link>
+          <Link to="/post-input" style={{color: 'inherit'}} >
+          <IoIosAddCircleOutline size={28} className='icons' />
+>>>>>>> Jun
           </Link>
           <Link to="/user-profile" style={{ color: "inherit" }}>
             <AiOutlineUser size={28} className="icons" />
