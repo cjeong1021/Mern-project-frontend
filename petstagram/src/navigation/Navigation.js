@@ -3,6 +3,7 @@ import './navigation.css'
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
 import { IoIosAddCircleOutline, IoIosSearch } from 'react-icons/io'
 import { FaPaw } from 'react-icons/fa'
+import { TiShoppingCart } from 'react-icons/ti'
 import { Link} from 'react-router-dom'
 
 const Navigation = () => {
@@ -22,6 +23,9 @@ const Navigation = () => {
         <div >
           <Link to="/main" style={{color: 'inherit'}} >
           <AiOutlineHome size={28} className='icons' />
+          </Link>
+          <Link to="/shop" style={{color: 'inherit'}} >
+          <TiShoppingCart size={28} className='icons' />
           </Link>
           <Link to="/post-input" style={{color: 'inherit'}} >
           <IoIosAddCircleOutline size={28} className='icons' />
