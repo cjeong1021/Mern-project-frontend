@@ -7,11 +7,7 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
-<<<<<<< HEAD
-import Upload from './PostInput/Upload';
-=======
 import PostInput from './PostInput/Upload';
->>>>>>> 6403078 (pushing)
 import UserProfile from './UserProfile/UserProfile';
 
 function App() {
