@@ -28,3 +28,21 @@
     align-items: center;
     font-family: 'Snippet', sans-serif;
 }
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.asdasd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin: 0 0 0 0;
+}
+
+.asd {
+    margin: 1rem;
+}
