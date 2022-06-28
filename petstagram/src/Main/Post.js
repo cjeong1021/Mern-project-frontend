@@ -38,21 +38,15 @@ const Post = () => {
             </p>
         </div>
         <div >
-<<<<<<< HEAD
-<<<<<<< HEAD
           <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
           <br />
           <input className='comment' type="text" placeholder='comment...' />
-=======
           <input className='comment' type="text" placeholder='comment...' />
           <br />
           <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
->>>>>>> 5a79f9d (postbox adjustments)
-=======
           <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
           <br />
           <input className='comment' type="text" placeholder='comment...' />
->>>>>>> 824880c (comment at bottom of div)
         </div>
         <div className='captionSection'> 
             <strong>Likes</strong> : ###
