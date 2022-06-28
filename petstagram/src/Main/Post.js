@@ -4,7 +4,7 @@ import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import { BsBookmark } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
-import EllipsisText from "react-ellipsis-text"
+import Comment from './Comment'
 
 const Post = () => {
   const [isLiked, setIsLiked] = useState(false);
@@ -38,9 +38,9 @@ const Post = () => {
         </div>
         <div >
           <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
+          </div>
           <br />
-          <input className='comment' type="text" placeholder='comment...' />
-        </div>
+          <Comment />
     </div>
     </div>
 

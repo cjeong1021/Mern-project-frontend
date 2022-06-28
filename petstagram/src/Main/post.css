@@ -63,11 +63,11 @@
     overflow: hidden;
     text-overflow: ellipsis; 
 }
-.comment {
+.input-group  {
     margin-top: 1rem;
     margin-left: 1rem;
     width: 95%;
-    background-color: rgb(246, 240, 240);
+    background-color:white;
     border: none;
     position: absolute;
     bottom: 0;
