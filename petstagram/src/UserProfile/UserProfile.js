@@ -3,7 +3,6 @@ import { BiUserCircle } from "react-icons/bi";
 import "./UserProfile.css";
 
 const UserProfile = (props) => {
-
   return (
     <div>
       <div className="user-info">
@@ -20,21 +19,7 @@ const UserProfile = (props) => {
           </div>
         </div>
       </div>
-      <div className="shared-pictures-container">
-        <div className="user-posts">
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        </div>
-      </div>
+      <div className="user-posts">Images going to be here</div>
     </div>
   );
 };
