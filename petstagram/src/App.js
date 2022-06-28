@@ -153,6 +153,8 @@ function App() {
           <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/user/:id" element={<User />}/>
+          <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
+          <Route path="/user/:id" element={<User />}/>
         </Routes>
       </main>
     </div>
