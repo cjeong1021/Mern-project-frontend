@@ -8,6 +8,7 @@ import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import PostInput from './PostInput/PostInput';
+import UserProfile from './UserProfile/UserProfile';
 
 function App() {
   const [data, setData] = useState([])
@@ -137,6 +138,7 @@ function App() {
           <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/post-input" element={<PostInput postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
+          <Route path="user-profile" element={<UserProfile />} />
         </Routes>
       </main>
     </div>
