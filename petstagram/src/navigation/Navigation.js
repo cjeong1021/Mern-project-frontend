@@ -7,7 +7,7 @@ import { Link} from 'react-router-dom'
 
 const Navigation = () => {
   return (
-    <div className='fullNav' style={{backgroundColor:"white",borderBottom:'.5px solid rgb(172, 172, 172)'
+    <div style={{backgroundColor:"white",borderBottom:'.5px solid rgb(172, 172, 172)'
     }}>
     <div className='navBar'>
       <div className='logo'>
@@ -26,7 +26,9 @@ const Navigation = () => {
           <Link to="/post-input" style={{color: 'inherit'}} >
           <IoIosAddCircleOutline size={28} className='icons' />
           </Link>
+          <Link to="/user-profile" style={{color: 'inherit'}} >
           <AiOutlineUser size={28} className='icons' />
+          </Link>
         </div>
     </div>
     </div>
