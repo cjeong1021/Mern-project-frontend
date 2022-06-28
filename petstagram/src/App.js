@@ -8,7 +8,6 @@ import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import PostInput from './PostInput/Upload';
-import User from './User/User';
 
 function App() {
   const [data, setData] = useState([])
@@ -128,10 +127,7 @@ function App() {
 
   return (
     <div className='App'>
-      <nav>
-      {location.pathname === '/' ? null : <Navigation /> && location.pathname === '/sign-up' ? null : <Navigation />}
-
-      </nav>
+      
       <main>
         <Routes>
           <Route path="/main" element={<Main data={data}/>}/>
@@ -139,7 +135,6 @@ function App() {
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/post-input" element={<PostInput postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
-          <Route path="/user/:id" element={<User />}/>
         </Routes>
       </main>
     </div>
