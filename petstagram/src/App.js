@@ -7,7 +7,19 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
+<<<<<<< HEAD
 import PostInput from './PostInput/Upload';
+=======
+<<<<<<< HEAD
+import Upload from './PostInput/Upload';
+=======
+<<<<<<< HEAD
+import PostInput from './PostInput/Upload';
+=======
+import Upload from './PostInput/Upload';
+>>>>>>> 542ab88 (user page add  pictures)
+>>>>>>> cf2b949 (user page add  pictures)
+>>>>>>> 6a67323 (user page add  pictures)
 import UserProfile from './UserProfile/UserProfile';
 
 function App() {
