@@ -1,24 +1,40 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
-import { BsBookmark } from 'react-icons/bs'
+import { BsBookmark, BsFillBookmarkCheckFill } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
 import Comment from './Comment'
+import axios from 'axios'
 
-const Post = () => {
+const Post = ({post}) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [isSaved, setIsSaved] = useState(false)
+  const [userData, setUserData] = useState({});
+
+  const getUser = () => {
+    axios
+      .get(`http://localhost:8000/petstagram/users/${post.user}`)
+      .then((res) => {
+        setUserData(res.data);
+      });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+  const [isSaved, setIsSaved] = useState(false)
 
   return (
-    <div className=''>
+    <div className='mainPost'>
     <div className='postBox'>
           <div className='postTop'>
             <Link style={{color:'inherit'}} to="/user/:id">
             <BiUserCircle className='userName' size={80}/>
-            <p style={{marginTop:"1.2rem"}} className='userName'>Sonam</p>
+            <p style={{marginTop:"1.2rem"}} className='userName'>{userData.name}</p>
             </Link>
           </div>
-        <img className='postImage' src='https://www.thesprucepets.com/thmb/jschPYYgX2Z2R04YkFt_HBIblJw=/1566x1044/filters:fill(auto,1)/GettyImages-1214648223-a185de9c88984ca69f1ac720bdea6efe.jpg' alt='#' />
+        <img className='postImage' src={post.picture} alt='#' />
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
            {isLiked
@@ -26,8 +42,12 @@ const Post = () => {
               : <IoIosHeartEmpty className='likeHeart' size={40} />
             }
           </p>
-          
-          <BsBookmark className='saveButton' size={35} />
+          <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
+          {isSaved
+            ? <BsFillBookmarkCheckFill className='saveButton' size={35} />
+            : <BsBookmark className='saveButton' size={35} /> 
+          }
+          </p>
         </div>
         <div className='captionSection'> 
             <strong>Likes</strong> : ###
@@ -37,7 +57,7 @@ const Post = () => {
             </p>
         </div>
         <div >
-          <p className='commentSection'> <strong>*User*</strong> :Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
+          <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
           </div>
           <br />
           <Comment />
