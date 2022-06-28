@@ -68,8 +68,6 @@ const Post = ({post}) => {
             : <BsBookmark className='saveButton' size={35} /> 	
           }	
           </p>
-          
-          <BsBookmark className='saveButton' size={35} />
         </div>
         <div className='captionSection'> 
             <strong>Likes</strong> : {post.likes}
