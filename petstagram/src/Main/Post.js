@@ -37,15 +37,12 @@ const Post = ({post}) => {
     getUser();
     getComments();
   }, []);
-<<<<<<< HEAD
 
   const renderComments = comments.map((comment) => {
     return (
       <p className='commentSection'>{comment}</p>
     )
   })
-=======
->>>>>>> parent of 0782a0e (Merge branch 'main' of github.com:cjeong1021/Mern-project-frontend)
 
   return (
     <div className=''>
@@ -75,11 +72,7 @@ const Post = ({post}) => {
             </p>
         </div>
         <div >
-<<<<<<< HEAD
           {renderComments}
-=======
-          <p className='commentSection'> <strong>*User*</strong> :Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
->>>>>>> parent of 0782a0e (Merge branch 'main' of github.com:cjeong1021/Mern-project-frontend)
           </div>
           <br />
           <Comment />
