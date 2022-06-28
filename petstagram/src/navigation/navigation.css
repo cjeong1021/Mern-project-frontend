@@ -34,15 +34,13 @@
     height: 30px;
 }
 
-.asdasd {
+.navbar-icons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
-    margin: 0 0 0 0;
 }
 
-.asd {
-    margin: 1rem;
+.dropdown {
+    margin: 0.2rem;
 }
