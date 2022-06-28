@@ -7,11 +7,8 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
-<<<<<<< HEAD
 import PostInput from './PostInput/PostInput';
-=======
 import User from './User/User';
->>>>>>> b913372 (postbox adjustments)
 
 function App() {
   const [data, setData] = useState([])
@@ -154,13 +151,10 @@ function App() {
         <Routes>
           <Route path="/main" element={<Main data={data}/>}/>
           <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
-<<<<<<< HEAD
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/post-input" element={<PostInput postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
-=======
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/user/:id" element={<User />}/>
->>>>>>> b913372 (postbox adjustments)
         </Routes>
       </main>
     </div>
