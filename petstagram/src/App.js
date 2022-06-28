@@ -10,7 +10,6 @@ import SignUp from './SignUp/SignUp';
 import Upload from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
 
-
 function App() {
   const [data, setData] = useState([])
   const location = useLocation();
@@ -138,7 +137,7 @@ function App() {
 
   return (
     <div className='App'>
-      <nav className='fullNav'>
+      <nav>
       {location.pathname === '/' ? null : <Navigation /> && location.pathname === '/sign-up' ? null : <Navigation />}
 
       </nav>
