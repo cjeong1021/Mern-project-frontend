@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import "./navigation.css";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
