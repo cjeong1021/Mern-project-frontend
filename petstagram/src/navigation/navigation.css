@@ -1,7 +1,10 @@
 .fullNav {
-    position: fixed;
+    position: sticky;
+    top: 0;
     width: 100%;
     margin-top: 0;
+    grid-row: 1;
+    z-index: 1000;
 }
 .navBar {
     display: flex;
