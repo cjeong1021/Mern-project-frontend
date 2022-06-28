@@ -8,18 +8,22 @@ import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import PostInput from './PostInput/Upload';
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> fe39d5a (navbar position failed)
 import Upload from './PostInput/Upload';
-=======
-<<<<<<< HEAD
 import PostInput from './PostInput/Upload';
+<<<<<<< HEAD
 =======
 import Upload from './PostInput/Upload';
 >>>>>>> 542ab88 (user page add  pictures)
 >>>>>>> cf2b949 (user page add  pictures)
 >>>>>>> 6a67323 (user page add  pictures)
+=======
+>>>>>>> fe39d5a (navbar position failed)
 import UserProfile from './UserProfile/UserProfile';
 
 function App() {

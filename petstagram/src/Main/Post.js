@@ -22,6 +22,7 @@ const Post = ({post}) => {
   useEffect(() => {
     getUser();
   }, []);
+  const [isSaved, setIsSaved] = useState(false)
 
   return (
     <div className='mainPost'>
