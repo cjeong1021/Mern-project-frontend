@@ -23,7 +23,8 @@
     width: 600px;
 }
 
-.description {
+.description { 
+    display: flex;
     border: 1px solid orange;
     padding: 1rem;
 }
