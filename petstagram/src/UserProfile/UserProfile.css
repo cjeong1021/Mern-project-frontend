@@ -27,3 +27,7 @@
     border: 1px solid orange;
     padding: 1rem;
 }
+
+.user-posts {
+    margin: 1rem 5rem 0 18rem;
+}

@@ -4,7 +4,7 @@ import "./UserProfile.css";
 
 const UserProfile = () => {
   return (
-    <div className="userProfile">
+    <div>
       <div className="user-info">
         <div>
           <BiUserCircle className="userPic" size={80} />
@@ -21,7 +21,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      Images going to be here
+      <div className="user-posts">Images going to be here</div>
     </div>
   );
 };
