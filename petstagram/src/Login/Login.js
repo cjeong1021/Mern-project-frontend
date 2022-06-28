@@ -20,7 +20,7 @@ const Login = (props) => {
         data-aos-offset="500"
         data-aos-duration="500">
             
-            <input onChange={(e) => props.handleLogin(e)} placeholder="Id" name="userId"/>
+            <input onChange={(e) => props.handleLogin(e)} placeholder="Id" name="username"/>
             <input onChange={(e) => props.handleLogin(e)} placeholder="Password" name="password"/>
 
             <Link to="/main">
