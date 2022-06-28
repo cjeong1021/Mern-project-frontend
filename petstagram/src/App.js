@@ -13,7 +13,7 @@ function App() {
   const [data, setData] = useState([])
   const location = useLocation();
     const getData = () => {
-      axios.get("https://jsonplaceholder.typicode.com/posts")
+      axios.get("http://localhost:8000/petstagram/posts")
       .then(res => {
         setData(res.data)
       })
@@ -21,8 +21,19 @@ function App() {
         console.log(err)
       })
     }
+    const getUserData = () => {
+      axios.get("http://localhost:8000/petstagram/users")
+      .then(res => {
+        setUserData(res.data)
+        console.log(res.data);
+      })
+      .catch(err =>{
+        console.log(err)
+      })
+    }
     useEffect(() => {
       getData()
+      getUserData()
       }, [])
 
       //UserData
@@ -33,7 +44,7 @@ function App() {
       firstName: "",
       lastName: "",
       age: null,
-      userId: null,
+      userid: null,
       password: "",
       email: "",
       logIn: false
@@ -56,26 +67,30 @@ function App() {
         const user = userData.find((user) => user.userId === loginForm.userId)
         if(user.password == loginForm.password) {
           console.log("welcome");
-          setUser({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            age: user.age,
-            userId: user.userId,
-            password: user.password,
-            email: user.email,
-            logIn: true,
+          const index = userData.indexOf(user);
+          axios.put(`http://localhost:8000/petstagram/users/${userData[index]._id}`, {logIn: true}).then(res => {
+            console.log(res.data);
           })
+          setUser(userData[index]);
+          // setUser({
+          //   firstName: user.firstName,
+          //   lastName: user.lastName,
+          //   age: user.age,
+          //   userId: user.userId,
+          //   password: user.password,
+          //   email: user.email,
+          //   logIn: true,
+          // })
         } else {
-          alert("The password you’ve entered is incorrect.");
+          alert("The password you've entered is incorrect.");
         }
       }
 
       //Sign Up
       const [signUpForm, setSignUpForm] = useState({
-        firstName: "",
-        lastName: "",
+        name: '',
         age: "",
-        userId: "",
+        userid: "",
         password: "",
         email: "",
         logIn: false
@@ -89,7 +104,7 @@ function App() {
       }
 
       const createUser = () => {
-        axios.post('http://localhost:3000/api/users/', signUpForm)
+        axios.post('http://localhost:8000/petstagram/users/', signUpForm)
       }
 
       //Post Input
@@ -107,9 +122,9 @@ function App() {
     setPostInputForm({
       ...postInputForm,
       [e.target.name]: e.target.value,
-      complete: false,
-      coordinates: {},
-      requested: false   
+      // complete: false,
+      // coordinates: {},
+      // requested: false   
     })
   }
 
@@ -121,7 +136,7 @@ function App() {
   },[postList])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:8000/api/posts/${user.userId}`, postInputForm)   
+    axios.post(`http://localhost:8000/petstagram/posts/${user.userId}`, postInputForm)   
   }
 
 

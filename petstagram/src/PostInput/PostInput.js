@@ -9,7 +9,7 @@ const PostInput = (props) => {
         <div className="postInput">
         <div className="inputBox">
 
-            <input onChange={props.handlePostChange} placeholder="Title" name="title"/>
+            <input onChange={props.handlePostChange} placeholder="Title" name="post"/>
             <input onChange={props.handlePostChange} placeholder="Picture URL" name="picture"/>
             <input onChange={props.handlePostChange} className="description" placeholder="Description" name="description"/>
 
