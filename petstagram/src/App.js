@@ -33,14 +33,14 @@ function App() {
       console.log(err)
     })
   }
+
+  //UserData
+  const [userData, setUserData] = useState([])
+
     useEffect(() => {
       getData()
       getUserData()
       }, [])
-
-      //UserData
-      const [userData, setUserData] = useState([])
-
 
       //User logged in
       const [user, setUser] = useState({
@@ -67,7 +67,7 @@ function App() {
     
       const validateLogin = () => {
         const user = userData.find((user) => user.username === loginForm.username)
-        if(user.password == loginForm.password) {
+        if(user.password === loginForm.password) {
           console.log("welcome");
           const index = userData.indexOf(user);
           axios.put(`http://localhost:8000/petstagram/users/${userData[index]._id}`, {logIn: true}).then(res => {
@@ -104,11 +104,6 @@ function App() {
   const [postInputForm, setPostInputForm] = useState({
     picture: "",
     description: "",
-    // date: "",
-    // location: "",
-    // complete: false,
-    // coordinates: null,
-    // requested: false
   })
 
   const handlePostChange = (e) => {  
@@ -129,7 +124,7 @@ function App() {
   },[])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:8000/petstagram/posts/${user.username}`, {
+    axios.post(`http://localhost:8000/petstagram/posts/${user._id}`, {
       ...postInputForm,	
       likes: 0,	
       user: user._id,	
