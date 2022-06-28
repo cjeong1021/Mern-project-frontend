@@ -7,7 +7,7 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
-import PostInput from './PostInput/PostInput';
+import PostInput from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
 
 function App() {
@@ -22,12 +22,24 @@ function App() {
         console.log(err)
       })
     }
+    const getUserData = () => {
+    axios.get("http://localhost:8000/petstagram/users")
+    .then(res => {
+      setUserData(res.data)
+      console.log(res.data);
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+  }
     useEffect(() => {
       getData()
+      getUserData()
       }, [])
 
       //UserData
       const [userData, setUserData] = useState([])
+
 
       //User logged in
       const [user, setUser] = useState({
@@ -42,7 +54,7 @@ function App() {
 
       //Login
       const [loginForm, setLoginForm] = useState({
-        userid: "",
+        userId: "",
         password: ""
       })
     
@@ -54,18 +66,14 @@ function App() {
       }
     
       const validateLogin = () => {
-        const user = userData.find((user) => user.userid === loginForm.userid)
+        const user = userData.find((user) => user.userid === loginForm.userId)
         if(user.password == loginForm.password) {
           console.log("welcome");
-          setUser({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            age: user.age,
-            userid: user.userid,
-            password: user.password,
-            email: user.email,
-            logIn: true,
+          const index = userData.indexOf(user);
+          axios.put(`http://localhost:8000/petstagram/users/${userData[index]._id}`, {logIn: true}).then(res => {
+            console.log(res.data);
           })
+          setUser(userData[index]);
         } else {
           alert("The password you’ve entered is incorrect.");
         }
