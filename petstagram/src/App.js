@@ -11,7 +11,6 @@ import Upload from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
 import ShopBoard from './Shop/ShopBoard';
 
-
 function App() {
   const [data, setData] = useState([])
   const location = useLocation();
@@ -45,7 +44,7 @@ function App() {
 
       //User logged in
       const [user, setUser] = useState({
-      name: '',
+      name:"",
       age: null,
       username: null,
       password: "",
@@ -130,14 +129,14 @@ function App() {
   },[])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:8000/petstagram/posts/${user._id}`, {
-      ...postInputForm,
-      likes: 0,
-      user: user._id,
-      likedByUsers: [],
-      favedByUsers: [],
-      comments: [],
-    })   
+    axios.post(`http://localhost:8000/petstagram/posts/${user.username}`, {
+      ...postInputForm,	
+      likes: 0,	
+      user: user._id,	
+      likedByUsers: [],	
+      favedByUsers: [],	
+      comments: [],	
+    })   	
   }
 
 

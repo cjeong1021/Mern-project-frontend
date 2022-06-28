@@ -9,8 +9,9 @@ import axios from 'axios'
 
 const Post = ({post}) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [isSaved, setIsSaved] = useState(false)
+  const [isSaved, setIsSaved] = useState(false)	
   const [userData, setUserData] = useState({});
+  const [comments, setComments] = useState([]);
 
   const getUser = () => {
     axios
@@ -20,10 +21,29 @@ const Post = ({post}) => {
       });
   };
 
+    const commentData = post.comments.map((comment) => {
+      return comment
+    })
+
+    const getComments = () => {
+      commentData.forEach((comment) => {
+        axios.get(`http://localhost:8000/petstagram/comments/${comment}`).then((res) => {
+          setComments([...comments, res.data.comment])
+        }
+        )
+      })
+    }
+
   useEffect(() => {
     getUser();
+    getComments();
   }, []);
-  const [isSaved, setIsSaved] = useState(false)
+
+  const renderComments = comments.map((comment) => {
+    return (
+      <p className='commentSection'>{comment}</p>
+    )
+  })
 
   return (
     <div className='mainPost'>
@@ -42,22 +62,24 @@ const Post = ({post}) => {
               : <IoIosHeartEmpty className='likeHeart' size={40} />
             }
           </p>
-          <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
+          <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>	
           {isSaved
-            ? <BsFillBookmarkCheckFill className='saveButton' size={35} />
-            : <BsBookmark className='saveButton' size={35} /> 
-          }
+            ? <BsFillBookmarkCheckFill className='saveButton' size={35} />	
+            : <BsBookmark className='saveButton' size={35} /> 	
+          }	
           </p>
+          
+          <BsBookmark className='saveButton' size={35} />
         </div>
         <div className='captionSection'> 
-            <strong>Likes</strong> : ###
+            <strong>Likes</strong> : {post.likes}
             <br />
             <p className='caption'>
-            <strong>Caption</strong> : Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolor nobis laborum quod ut at odio assumenda autem illum quo, exercitationem facilis ad blanditiis, illo earum repellat fugit dignissimos harum perspiciatis iste minus nisi voluptatum quidem cupiditate. Harum, eveniet rem!
+            <strong>Caption</strong> : {post.description}
             </p>
         </div>
         <div >
-          <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
+          {renderComments}
           </div>
           <br />
           <Comment />

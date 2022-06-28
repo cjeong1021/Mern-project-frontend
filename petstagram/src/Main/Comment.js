@@ -1,16 +1,7 @@
-import React, {useState} from 'react'
-import axios from 'axios'
+import React from 'react'
+
 const Comment = () => {
 
-  const [comment, setComment] = useState('')
-
-  const postComment = (e) => {
-    e.preventDefault();
-    axios.post("url", {
-      
-    }).then(res => console.log("posting data", res))
-    .catch(err => console.log(err))
-  }
     
   return (
     <div>
