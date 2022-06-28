@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
-import { BsBookmark, BsFillBookmarkCheckFill } from 'react-icons/bs'
+import { BsBookmark } from 'react-icons/bs'
 import { BiUserCircle } from 'react-icons/bi'
 import './post.css'
 import Comment from './Comment'
@@ -9,7 +9,6 @@ import axios from 'axios'
 
 const Post = ({post}) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [isSaved, setIsSaved] = useState(false)
   const [userData, setUserData] = useState({});
   const [comments, setComments] = useState([]);
 
@@ -38,15 +37,18 @@ const Post = ({post}) => {
     getUser();
     getComments();
   }, []);
+<<<<<<< HEAD
 
   const renderComments = comments.map((comment) => {
     return (
       <p className='commentSection'>{comment}</p>
     )
   })
+=======
+>>>>>>> parent of 0782a0e (Merge branch 'main' of github.com:cjeong1021/Mern-project-frontend)
 
   return (
-    <div className='mainPost'>
+    <div className=''>
     <div className='postBox'>
           <div className='postTop'>
             <Link style={{color:'inherit'}} to="/user/:id">
@@ -62,12 +64,8 @@ const Post = ({post}) => {
               : <IoIosHeartEmpty className='likeHeart' size={40} />
             }
           </p>
-          <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
-          {isSaved
-            ? <BsFillBookmarkCheckFill className='saveButton' size={35} />
-            : <BsBookmark className='saveButton' size={35} /> 
-          }
-          </p>
+          
+          <BsBookmark className='saveButton' size={35} />
         </div>
         <div className='captionSection'> 
             <strong>Likes</strong> : {post.likes}
@@ -77,7 +75,11 @@ const Post = ({post}) => {
             </p>
         </div>
         <div >
+<<<<<<< HEAD
           {renderComments}
+=======
+          <p className='commentSection'> <strong>*User*</strong> :Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
+>>>>>>> parent of 0782a0e (Merge branch 'main' of github.com:cjeong1021/Mern-project-frontend)
           </div>
           <br />
           <Comment />

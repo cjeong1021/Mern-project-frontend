@@ -7,10 +7,9 @@ import Main from './Main/Main';
 import Navigation from './navigation/Navigation';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
-import Upload from './PostInput/Upload';
+import PostInput from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
 import ShopBoard from './Shop/ShopBoard';
-
 
 function App() {
   const [data, setData] = useState([])
@@ -45,7 +44,8 @@ function App() {
 
       //User logged in
       const [user, setUser] = useState({
-      name: '',
+      firstName: "",
+      lastName: "",
       age: null,
       username: null,
       password: "",
@@ -82,7 +82,8 @@ function App() {
 
       //Sign Up
       const [signUpForm, setSignUpForm] = useState({
-        name: "",
+        firstName: "",
+        lastName: "",
         age: "",
         username: "",
         password: "",
@@ -103,6 +104,7 @@ function App() {
 
       //Post Input
   const [postInputForm, setPostInputForm] = useState({
+    title: "",
     picture: "",
     description: "",
     // date: "",
@@ -130,20 +132,13 @@ function App() {
   },[])
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:8000/petstagram/posts/${user._id}`, {
-      ...postInputForm,
-      likes: 0,
-      user: user._id,
-      likedByUsers: [],
-      favedByUsers: [],
-      comments: [],
-    })   
+    axios.post(`http://localhost:8000/petstagram/posts/${user.username}`, postInputForm)   
   }
 
 
   return (
     <div className='App'>
-      <nav className='fullNav'>
+      <nav>
       {location.pathname === '/' ? null : <Navigation /> && location.pathname === '/sign-up' ? null : <Navigation />}
 
       </nav>
@@ -152,7 +147,7 @@ function App() {
           <Route path="/main" element={<Main data={data}/>}/>
           <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
-          <Route path="/post-input" element={<Upload handlePostChange={handlePostChange} postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
+          <Route path="/post-input" element={<Upload postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
           <Route path="user-profile" element={<UserProfile data={data} />} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/shop" element={<ShopBoard />} />
