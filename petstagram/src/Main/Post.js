@@ -37,9 +37,15 @@ const Post = () => {
             </p>
         </div>
         <div >
+<<<<<<< HEAD
           <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
           <br />
           <input className='comment' type="text" placeholder='comment...' />
+=======
+          <input className='comment' type="text" placeholder='comment...' />
+          <br />
+          <p className='commentSection'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto non hic accusamus temporibus quia vel, tempore rem. Quas beatae, vitae distinctio enim ullam eaque! Autem alias cupiditate reiciendis dolor!</p>
+>>>>>>> b913372 (postbox adjustments)
         </div>
     </div>
     </div>
