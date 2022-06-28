@@ -138,7 +138,7 @@ function App() {
           <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
           <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/post-input" element={<PostInput postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
-          <Route path="user-profile" element={<UserProfile />} />
+          <Route path="user-profile" element={<UserProfile data={data} />} />
         </Routes>
       </main>
     </div>

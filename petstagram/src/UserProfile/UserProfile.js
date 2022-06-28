@@ -2,7 +2,7 @@ import React from "react";
 import { BiUserCircle } from "react-icons/bi";
 import "./UserProfile.css";
 
-const UserProfile = () => {
+const UserProfile = (props) => {
   return (
     <div>
       <div className="user-info">
