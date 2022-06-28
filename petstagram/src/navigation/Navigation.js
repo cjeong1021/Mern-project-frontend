@@ -9,29 +9,6 @@ import { BiUserCircle } from "react-icons/bi";
 
 const Navigation = () => {
   return (
-<<<<<<< HEAD
-    <div style={{backgroundColor:"white",borderBottom:'.5px solid rgb(172, 172, 172)'
-    }}>
-    <div className='navBar'>
-      <div className='logo'>
-      <Link to="/main" style={{textDecoration:'none',color: 'inherit'}} >
-        <h3><FaPaw size={25}/> Petstagram</h3>
-      </Link>
-      </div>
-        <form>
-          <IoIosSearch />
-            <input type="search" className='searchBar' placeholder='Search'/>
-        </form>
-        <div >
-          <Link to="/main" style={{color: 'inherit'}} >
-          <AiOutlineHome size={28} className='icons' />
-          </Link>
-          <Link to="/post-input" style={{color: 'inherit'}} >
-          <IoIosAddCircleOutline size={28} className='icons' />
-          </Link>
-          <Link to="/user-profile" style={{color: 'inherit'}} >
-          <AiOutlineUser size={28} className='icons' />
-=======
     <div
       className="fullNav"
       style={{
@@ -45,7 +22,6 @@ const Navigation = () => {
             <h3>
               <FaPaw size={25} /> Petstagram
             </h3>
->>>>>>> 3aac892 (edit Navigation.js)
           </Link>
         </div>
         <form>
