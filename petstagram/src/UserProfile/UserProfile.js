@@ -5,36 +5,51 @@ import "./UserProfile.css";
 const UserProfile = (props) => {
 
   return (
-    <div>
-      <div className="user-info">
+    <div className="userBoard">
+      <div className="userInfo">
+        <BiUserCircle className="userIcon" />
+        <div className="user">
+          <p id="userName">User Name</p>
+          <button>Edit profile</button>
+        </div>
+
+        <div className="postQuantity">
+          <div id="post">
+          <p>0</p> <p>Posts</p>
+          </div>
+
+          <div id="followers">
+          <p>0</p> <p>Followers</p>
+          </div>
+
+          <div id="following">
+          <p>0</p> <p>Following</p>
+          </div>
+        </div>
+
         <div>
-          <BiUserCircle className="userPic" size={80} />
-        </div>
-        <div className="userName">
-          <h2>UserName</h2>
-          <div className="stats">
-            <h5>Posts</h5>
-          </div>
-          <div className="description">
-            <h2>Description Part</h2>
-          </div>
+          <p>User Bio</p>
         </div>
       </div>
-      <div className="shared-pictures-container">
-        <div className="user-posts">
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        <img className="image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" alt="pet" />
-        </div>
+
+      <div className="menu">
+        <p>Post</p>
+        <p>Saved</p>
       </div>
+
+      <div className="imageContainer">
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+        <img className="image" src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="pet" />
+      </div>
+
     </div>
   );
 };
