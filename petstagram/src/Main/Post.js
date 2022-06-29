@@ -13,10 +13,8 @@ const Post = ({ post }) => {
   const [userData, setUserData] = useState({});
   const [comments, setComments] = useState([]);
   const [commentUsers, setCommentUsers] = useState([]);
-
-const likeFunction = () => {
-  post.likes++
-};
+  const [likes, setLikes] = useState(0)
+console.log(post)
 
   const commentData = post.comments.map((comment) => {
     return comment;
@@ -27,6 +25,7 @@ const likeFunction = () => {
     axios
       .get(`http://localhost:8000/petstagram/users/${post.user}`)
       .then((res) => {
+        console.log(res)
         setUserData(res.data);
       })
       .then(() => {
@@ -43,7 +42,20 @@ const likeFunction = () => {
 
   useEffect(() => {
     getUser();
+    setLikes(post.likes)
   }, []);
+
+  const likeFunction = (e) => {
+    console.log("Liking post")
+    e.preventDefault();
+    axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+    {likes: post.likes + 1})
+    .then((res) => {
+     console.log(res)
+     setLikes(res.data.likes)
+    })
+    .catch(err => console.log(err))
+  }
 
   useEffect(() => {
     const commentNames = comments.forEach((comment) => {
@@ -90,9 +102,9 @@ const likeFunction = () => {
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
             {isLiked ? (
-              <IoIosHeart onClick={likeFunction} className='likeHeart' size={40} />
+              <IoIosHeart className='likeHeart' size={40} />
             ) : (
-              <IoIosHeartEmpty className='likeHeart' size={40} />
+              <IoIosHeartEmpty onClick={likeFunction} className='likeHeart' size={40} />
             )}
           </p>
           <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
@@ -104,7 +116,7 @@ const likeFunction = () => {
           </p>
         </div>
         <div className='captionSection'>
-          <strong>Likes</strong> : {post.likes}
+          <strong>Likes</strong> : {likes}
           <br />
           <p className='caption'>
             <strong>Caption</strong> : {post.description}
