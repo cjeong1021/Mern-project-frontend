@@ -36,7 +36,7 @@ input {
     padding-left: 10px;
     width: 400px;
     border-radius: 10px;
-    border: 0.5px solid rgb(130, 130, 130);;
+    border: 0.5px solid rgb(188, 188, 188);;
 }
 
 .description {
@@ -61,7 +61,7 @@ input {
     width: 400px;
     border: 0;
     border-radius: 8px;
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(180, 180, 180);
 }
 /* 
 img {
