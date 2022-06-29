@@ -14,61 +14,60 @@ const Post = ({ post }) => {
   const [comments, setComments] = useState([]);
   const [commentUsers, setCommentUsers] = useState([]);
 
-  const commentData = post.comments.map((comment) => {
-    return comment;
-  });
-
   const getUser = () => {
     axios
       .get(`http://localhost:8000/petstagram/users/${post.user}`)
       .then((res) => {
+        console.log(post);
         setUserData(res.data);
-      })
-      .then(() => {
-        commentData.forEach((comment) => {
-          axios
-            .get(`http://localhost:8000/petstagram/comments/${comment}`)
-            .then((res) => {
-              console.log(res.data);
-              setComments([...comments, res.data]);
-            });
-        });
+        console.log(res.data);
+        return axios
+          .get(`http://localhost:8000/petstagram/comments/${post.comments[2]}`)
+          .then((res) => {
+            console.log(res.data);
+            setComments([...comments, res.data]);
+            console.log(comments);
+          });
       });
+  };
+
+  const getComments = () => {
+    let oldArray = [];
+    const commentURLs = post.comments.map((comment) => {
+      return axios.get(`http://localhost:8000/petstagram/comments/${comment}`);
+    });
+    console.log(commentURLs);
+
+    axios.all(commentURLs).then((res) => {
+      console.log(res);
+      res.forEach((response) => {
+        oldArray.push(response.data);
+      });
+      console.log(oldArray);
+      setTimeout(() => {
+        setComments(oldArray);
+      }, 1000);
+    });
   };
 
   useEffect(() => {
     getUser();
+    getComments();
   }, []);
 
   useEffect(() => {
-    const commentNames = comments.forEach((comment) => {
-      console.log(comment.user);
+    comments.forEach((comment) => {
       axios
         .get(`http://localhost:8000/petstagram/users/${comment.user}`)
         .then((res) => {
-          console.log(res.data);
           setCommentUsers([...commentUsers, res.data]);
         });
     });
   }, [comments]);
 
   const renderComments = comments.map((comment) => {
-    return comment.comment;
+    return <p className='commentSection'>{comment.comment}</p>;
   });
-
-  const renderCommentUsers = commentUsers.map((user) => {
-    return user.name;
-  });
-
-  // const commentNames = comments.forEach((comment) => {
-  //   console.log(comment.user);
-  //   axios
-  //     .get(`http://localhost:8000/petstagram/users/${comment.user}`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       setCommentUsers([...commentUsers, res.data]);
-  //     });
-  // });
 
   return (
     <div className='mainPost'>
@@ -105,11 +104,7 @@ const Post = ({ post }) => {
             <strong>Caption</strong> : {post.description}
           </p>
         </div>
-        <div>
-          <p className='commentSection'>
-            {renderCommentUsers}:{renderComments}
-          </p>
-        </div>
+        <div>{renderComments}</div>
         <br />
         <Comment />
       </div>
