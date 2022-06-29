@@ -11,11 +11,11 @@
     padding: 50px;
     background-color: rgb(244, 244, 244);
     border-radius: 30px;
-    top: 50%;
     position: absolute;
+    top: 55%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    margin: 0;
+    margin: auto;
 }
 
 input {
