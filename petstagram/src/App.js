@@ -9,7 +9,7 @@ import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import Upload from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
-
+import ShopBoard from './Shop/ShopBoard';
 
 function App() {
   const [data, setData] = useState([])
@@ -33,18 +33,18 @@ function App() {
       console.log(err)
     })
   }
+
+  //UserData
+  const [userData, setUserData] = useState([])
+
     useEffect(() => {
       getData()
       getUserData()
       }, [])
 
-      //UserData
-      const [userData, setUserData] = useState([])
-
-
       //User logged in
       const [user, setUser] = useState({
-      name: '',
+      name:"",
       age: null,
       username: null,
       password: "",
@@ -67,7 +67,7 @@ function App() {
     
       const validateLogin = () => {
         const user = userData.find((user) => user.username === loginForm.username)
-        if(user.password == loginForm.password) {
+        if(user.password === loginForm.password) {
           console.log("welcome");
           const index = userData.indexOf(user);
           axios.put(`http://localhost:8000/petstagram/users/${userData[index]._id}`, {logIn: true}).then(res => {
@@ -104,11 +104,6 @@ function App() {
   const [postInputForm, setPostInputForm] = useState({
     picture: "",
     description: "",
-    // date: "",
-    // location: "",
-    // complete: false,
-    // coordinates: null,
-    // requested: false
   })
 
   const handlePostChange = (e) => {  
@@ -130,13 +125,13 @@ function App() {
 
   const saveUserPost = () => {
     axios.post(`http://localhost:8000/petstagram/posts/${user._id}`, {
-      ...postInputForm,
-      likes: 0,
-      user: user._id,
-      likedByUsers: [],
-      favedByUsers: [],
-      comments: [],
-    })   
+      ...postInputForm,	
+      likes: 0,	
+      user: user._id,	
+      likedByUsers: [],	
+      favedByUsers: [],	
+      comments: [],	
+    })   	
   }
 
 
@@ -154,6 +149,7 @@ function App() {
           <Route path="/post-input" element={<Upload handlePostChange={handlePostChange} postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
           <Route path="user-profile" element={<UserProfile data={data} />} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
+          <Route path="/shop" element={<ShopBoard />} />
         </Routes>
       </main>
     </div>
