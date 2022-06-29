@@ -10,6 +10,8 @@ import SignUp from './SignUp/SignUp';
 import Upload from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
 import ShopBoard from './Shop/ShopBoard';
+import LikedPosts from './likedPosts/LikedPosts';
+import SavedPosts from './likedPosts/SavedPosts';
 
 function App() {
   const [data, setData] = useState([])
@@ -150,6 +152,9 @@ function App() {
           <Route path="user-profile" element={<UserProfile data={data} />} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
           <Route path="/shop" element={<ShopBoard />} />
+          <Route path="/liked-posts" element={<LikedPosts />} />
+          <Route path="/saved-posts" element={<SavedPosts />} />
+          
         </Routes>
       </main>
     </div>
