@@ -9,7 +9,6 @@ import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import Upload from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
-import ShopBoard from './Shop/ShopBoard';
 
 function App() {
   const [data, setData] = useState([])
@@ -149,7 +148,6 @@ function App() {
           <Route path="/post-input" element={<Upload handlePostChange={handlePostChange} postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
           <Route path="user-profile" element={<UserProfile data={data} />} />
           <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
-          <Route path="/shop" element={<ShopBoard />} />
         </Routes>
       </main>
     </div>
