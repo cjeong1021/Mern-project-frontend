@@ -14,9 +14,14 @@ const Post = ({ post }) => {
   const [comments, setComments] = useState([]);
   const [commentUsers, setCommentUsers] = useState([]);
 
+const likeFunction = () => {
+  post.likes++
+};
+
   const commentData = post.comments.map((comment) => {
     return comment;
   });
+
 
   const getUser = () => {
     axios
@@ -85,7 +90,7 @@ const Post = ({ post }) => {
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
             {isLiked ? (
-              <IoIosHeart className='likeHeart' size={40} />
+              <IoIosHeart onClick={likeFunction} className='likeHeart' size={40} />
             ) : (
               <IoIosHeartEmpty className='likeHeart' size={40} />
             )}
