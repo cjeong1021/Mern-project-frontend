@@ -31,6 +31,8 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
+    min-width: 100%;
+    max-width: 100%;
 }
 .likeButton{
     border: none;
@@ -86,4 +88,5 @@
 }
 .saveButton{
     margin-right: .8rem;
+    margin-top: .3rem;
 }
