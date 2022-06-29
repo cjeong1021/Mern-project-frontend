@@ -1,9 +1,0 @@
-.shopBoard {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}

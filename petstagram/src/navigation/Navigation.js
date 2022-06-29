@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./navigation.css";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
@@ -6,6 +7,14 @@ import { FaPaw } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { BiUserCircle } from "react-icons/bi";
+=======
+import React from 'react'
+import './navigation.css'
+import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
+import { IoIosAddCircleOutline, IoIosSearch } from 'react-icons/io'
+import { FaPaw } from 'react-icons/fa'
+import { Link} from 'react-router-dom'
+>>>>>>> parent of 50daf78 (add shop)
 
 const Navigation = () => {
   return (
@@ -28,12 +37,24 @@ const Navigation = () => {
           <IoIosSearch />
           <input type="search" className="searchBar" placeholder="Search" />
         </form>
+<<<<<<< HEAD
         <div className="navbar-icons">
           <Link to="/main" style={{ color: "inherit" }}>
             <AiOutlineHome size={28} className="icons" />
           </Link>
           <Link to="/post-input" style={{ color: "inherit" }}>
             <IoIosAddCircleOutline size={28} className="icons" />
+=======
+        <div >
+          <Link to="/main" style={{color: 'inherit'}} >
+          <AiOutlineHome size={28} className='icons' />
+          </Link>
+          <Link to="/post-input" style={{color: 'inherit'}} >
+          <IoIosAddCircleOutline size={28} className='icons' />
+          </Link>
+          <Link to="/user-profile" style={{color: 'inherit'}} >
+          <AiOutlineUser size={28} className='icons' />
+>>>>>>> parent of 50daf78 (add shop)
           </Link>
           <div className="dropdown">
           <Dropdown>
