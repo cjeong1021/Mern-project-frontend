@@ -5,7 +5,6 @@ import { IoIosAddCircleOutline, IoIosSearch } from "react-icons/io";
 import { FaPaw } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { Dropdown } from "react-bootstrap";
-// import { BiUserCircle } from "react-icons/bi";
 
 const Navigation = () => {
   return (
