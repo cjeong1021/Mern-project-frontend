@@ -4,8 +4,8 @@ import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { IoIosAddCircleOutline, IoIosSearch } from "react-icons/io";
 import { FaPaw } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
-import { BiUserCircle } from "react-icons/bi";
+// import { Dropdown } from "react-bootstrap";
+// import { BiUserCircle } from "react-icons/bi";
 
 const Navigation = () => {
   return (
@@ -50,7 +50,7 @@ const Navigation = () => {
             <IoIosAddCircleOutline size={28} className="icons" />
           </Link>
           <div className="dropdown">
-            <Dropdown>
+            {/* <Dropdown>
               <Dropdown.Toggle variant="null" id="dropdown-basic">
                 <BiUserCircle className="profile-icon" />
               </Dropdown.Toggle>
@@ -64,7 +64,7 @@ const Navigation = () => {
                 <Dropdown.Item href="#/action-2">Liked Posts</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Saved Posts</Dropdown.Item>
               </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
           </div>
         </div>
       </div>
