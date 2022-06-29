@@ -9,13 +9,13 @@
     flex-direction: column;
     justify-content: center;
     padding: 50px;
-    background-color: rgb(252, 230, 202);
+    background-color: rgb(244, 244, 244);
     border-radius: 30px;
-    top: 50%;
     position: absolute;
+    top: 55%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    margin: 0;
+    margin: auto;
 }
 
 input {
@@ -23,10 +23,12 @@ input {
     height: 50px;
     font-size: 20px;
     padding-left: 10px;
+    border: 0.5px solid rgb(188, 188, 188);;
 }
 
 .description {
     height: 150px;
+    border: 0.5px solid rgb(188, 188, 188);;
 }
 
 .submitBtn {
@@ -34,4 +36,5 @@ input {
     font-size: 20px;
     width: 400px;
     margin-bottom: 0;
+    background-color: rgb(67, 181, 243);;
 }

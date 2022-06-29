@@ -6,7 +6,7 @@ import ShopItem from './ShopItem'
 
 const ShopBoard = () => {
 
-    const [petItems, setPetItems] = React.useState([1,2,3,4,5,6,7,8,9,10])
+    const [petItems, setPetItems] = React.useState([1,2,3,4,5,6,7,8,9])
 
     const items = petItems.map(item => {
         return <ShopItem key={item.id} item={item}/>
@@ -19,4 +19,4 @@ const ShopBoard = () => {
   )
 }
 
-export default ShopBoard
+export default ShopBoard 
