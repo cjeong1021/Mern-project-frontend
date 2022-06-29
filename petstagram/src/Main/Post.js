@@ -14,7 +14,12 @@ const Post = ({ post }) => {
   const [comments, setComments] = useState([]);
   const [commentUsers, setCommentUsers] = useState([]);
   const [likes, setLikes] = useState(0)
-console.log(post)
+
+
+  useEffect(() => {
+    getUser();
+    setLikes(post.likes)
+  }, []);
 
   const commentData = post.comments.map((comment) => {
     return comment;
@@ -25,80 +30,90 @@ console.log(post)
     axios
       .get(`http://localhost:8000/petstagram/users/${post.user}`)
       .then((res) => {
-        console.log(res)
+        console.log(res.data);
         setUserData(res.data);
-      })
-      .then(() => {
-        commentData.forEach((comment) => {
-          axios
-            .get(`http://localhost:8000/petstagram/comments/${comment}`)
-            .then((res) => {
-              console.log(res.data);
-              setComments([...comments, res.data]);
-            });
-        });
       });
   };
 
-  useEffect(() => {
-    getUser();
-    setLikes(post.likes)
-  }, []);
-
+  
   const likeFunction = (e) => {
     console.log("Liking post")
     e.preventDefault();
     axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
     {likes: post.likes + 1})
     .then((res) => {
-     console.log(res)
-     setLikes(res.data.likes)
+      console.log(res)
+      setLikes(res.data.likes)
     })
     .catch(err => console.log(err))
   }
-
-  const dislikeFunction = (e) => {
-    e.preventDefault();
-    axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
-    {likes: post.likes})
-    .then((res) => {
-     console.log(res)
-     setLikes(res.data.likes)
-    })
-    .catch(err => console.log(err))
-  }
-
-
   useEffect(() => {
     const commentNames = comments.forEach((comment) => {
       console.log(comment.user);
-      axios
-        .get(`http://localhost:8000/petstagram/users/${comment.user}`)
-        .then((res) => {
-          console.log(res.data);
-          setCommentUsers([...commentUsers, res.data]);
+      const getComments = () => {
+        let oldArray = [];
+        const commentURLs = post.comments.map((comment) => {
+          return axios.get(`http://localhost:8000/petstagram/comments/${comment}`);
         });
-    });
-  }, [comments]);
-
-  const renderComments = comments.map((comment) => {
-    return comment.comment;
+        console.log(commentURLs);
+        
+        if (comments !== []) {
+          axios
+          .all(commentURLs)
+          .then((res) => {
+            console.log(res);
+            res.forEach((response) => {
+              console.log(response.data);
+              oldArray.push(response.data);
+            });
+            console.log(oldArray);
+            setTimeout(() => {
+              setComments(oldArray);
+            }, 1000);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }
+      };
+    
+      const deleteComment = (id) => {
+        axios.delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`);
+      };
+      
+      const deletePost = () => {
+        axios.delete(
+          `http://localhost:8000/petstagram/posts/${post._id}/${userData._id}`
+          );
+        };
+        
+        // useEffect(() => {
+          //   getUser();
+          //   getComments();
+          // }, []);
+          
+          // useEffect(() => {
+            //   comments.forEach((comment) => {
+              //     axios
+              //       .get(`http://localhost:8000/petstagram/users/${comment.user}`)
+              //       .then((res) => {
+                //         setCommentUsers([...commentUsers, res.data]);
+                //       });
+                //   });
+                // }, [comments]);
+                
+                const renderComments = comments.map((comment) => {
+                  return (
+                    <div className='commentSection'>
+        {comment.comment}
+        <button onClick={() => deleteComment(comment._id)} id={comment._id}>
+          Delete
+        </button>
+      </div>
+    );
   });
-
-  const renderCommentUsers = commentUsers.map((user) => {
-    return user.name;
-  });
-
-  // const commentNames = comments.forEach((comment) => {
-  //   console.log(comment.user);
-  //   axios
-  //     .get(`http://localhost:8000/petstagram/users/${comment.user}`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       setCommentUsers([...commentUsers, res.data]);
-  //     });
-  // });
-
+  
+  
   return (
     <div className='mainPost'>
       <div className='postBox'>
@@ -110,11 +125,12 @@ console.log(post)
             </p>
           </Link>
         </div>
+        <button onClick={() => deletePost()}>Delete</button>
         <img className='postImage' src={post.picture} alt='#' />
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
             {isLiked ? (
-              <IoIosHeart onClick={dislikeFunction} className='likeHeart' size={40} />
+              <IoIosHeart className='likeHeart' size={40} />
             ) : (
               <IoIosHeartEmpty onClick={likeFunction} className='likeHeart' size={40} />
             )}
@@ -134,16 +150,13 @@ console.log(post)
             <strong>Caption</strong> : {post.description}
           </p>
         </div>
-        <div>
-          <p className='commentSection'>
-            {renderCommentUsers}:{renderComments}
-          </p>
-        </div>
+        <div>{renderComments}</div>
         <br />
-        <Comment />
+        <Comment post={post} userData={userData} />
       </div>
     </div>
   );
-};
-
+});
+})
+}
 export default Post;
