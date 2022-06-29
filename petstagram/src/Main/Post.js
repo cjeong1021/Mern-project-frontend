@@ -14,12 +14,7 @@ const Post = ({ post }) => {
   const [comments, setComments] = useState([]);
   const [commentUsers, setCommentUsers] = useState([]);
   const [likes, setLikes] = useState(0)
-
-
-  useEffect(() => {
-    getUser();
-    setLikes(post.likes)
-  }, []);
+console.log(post)
 
   const commentData = post.comments.map((comment) => {
     return comment;
@@ -47,6 +42,19 @@ const Post = ({ post }) => {
     })
     .catch(err => console.log(err))
   }
+  
+  const dislikeFunction = (e) => {
+    e.preventDefault();
+    axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+    {likes: post.likes})
+    .then((res) => {
+      console.log(res)
+      setLikes(res.data.likes)
+    })
+    .catch(err => console.log(err))
+  }
+  
+  
   useEffect(() => {
     const commentNames = comments.forEach((comment) => {
       console.log(comment.user);
@@ -76,7 +84,11 @@ const Post = ({ post }) => {
           });
         }
       };
-    
+  //     useEffect(() => {
+  //   getUser();
+  //   setLikes(post.likes)
+  //   getComments()
+  // }, []);
       const deleteComment = (id) => {
         axios.delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`);
       };
@@ -130,7 +142,7 @@ const Post = ({ post }) => {
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
             {isLiked ? (
-              <IoIosHeart className='likeHeart' size={40} />
+              <IoIosHeart onClick={dislikeFunction} className='likeHeart' size={40} />
             ) : (
               <IoIosHeartEmpty onClick={likeFunction} className='likeHeart' size={40} />
             )}

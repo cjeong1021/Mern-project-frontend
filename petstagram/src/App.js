@@ -143,13 +143,38 @@ function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/main" element={<Main data={data}/>}/>
-          <Route path="/" element={<Login handleLogin={handleLogin} validateLogin={validateLogin}/>} />
-          <Route path="sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
-          <Route path="/post-input" element={<Upload handlePostChange={handlePostChange} postInputForm={postInputForm} setPostInputForm={setPostInputForm} saveUserPost={saveUserPost} />} />
-          <Route path="user-profile" element={<UserProfile data={data} />} />
-          <Route path="/sign-up" element={<SignUp handleSignUp={handleSignUp} createUser={createUser} />} />
-          <Route path="/shop" element={<ShopBoard />} />
+          <Route path='/main' element={<Main data={data} />} />
+          <Route
+            path='/'
+            element={
+              <Login handleLogin={handleLogin} validateLogin={validateLogin} />
+            }
+          />
+          <Route
+            path='sign-up'
+            element={
+              <SignUp handleSignUp={handleSignUp} createUser={createUser} />
+            }
+          />
+          <Route
+            path='/post-input'
+            element={
+              <Upload
+                handlePostChange={handlePostChange}
+                postInputForm={postInputForm}
+                setPostInputForm={setPostInputForm}
+                saveUserPost={saveUserPost}
+              />
+            }
+          />
+          <Route path='user-profile' element={<UserProfile data={data} />} />
+          <Route
+            path='/sign-up'
+            element={
+              <SignUp handleSignUp={handleSignUp} createUser={createUser} />
+            }
+          />
+          <Route path='/shop' element={<ShopBoard />} />
         </Routes>
       </main>
     </div>
