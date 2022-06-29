@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 50px;
-    background-color: rgb(252, 230, 202);
+    background-color: rgb(244, 244, 244);
     border-radius: 30px;
     top: 50%;
     position: absolute;
@@ -34,4 +34,5 @@ input {
     font-size: 20px;
     width: 400px;
     margin-bottom: 0;
+    background-color: rgb(67, 181, 243);;
 }

@@ -6,6 +6,7 @@ import { FaPaw } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import {BiUserCircle} from "react-icons/bi"
+import { TiShoppingCart } from 'react-icons/ti'
 
 const Navigation = () => {
   return (
@@ -17,11 +18,14 @@ const Navigation = () => {
       }}
     >
       <div className="navBar">
-        <div className="logo">
+        <div>
           <Link to="/main" style={{ textDecoration: "none", color: "inherit" }}>
-            <h3>
-              <FaPaw size={25} /> Petstagram
+            <div className="logo">
+              <img src="/image/petstagram.svg" alt="logo" style={{width: '45px'}}/>
+            <h3 style={{paddingLeft: '10px', margin: 'auto'}}>
+              Petstagram
             </h3>
+            </div>
           </Link>
         </div>
         <form>
@@ -31,6 +35,9 @@ const Navigation = () => {
         <div className="navbar-icons">
           <Link to="/main" style={{ color: "inherit" }}>
             <AiOutlineHome size={28} className="icons" />
+          </Link>
+          <Link to="/shop" style={{ color: "inherit" }}>
+            <TiShoppingCart size={28} className='icons' />
           </Link>
           <Link to="/post-input" style={{ color: "inherit" }}>
             <IoIosAddCircleOutline size={28} className="icons" />
