@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const Comment = ({ post, userData, getComments }) => {
+const Comment = ({ post, userData, comments, setComments, getComments }) => {
   const [newComment, setNewComment] = useState('');
 
   const handleComment = (e) => {
@@ -16,8 +16,10 @@ const Comment = ({ post, userData, getComments }) => {
           comment: newComment,
         }
       )
-      .then(() => {
-        // getComments();
+      .then((res) => {
+        let oldArray = [...comments];
+        oldArray.push(res.data);
+        setComments(oldArray);
       });
   };
 
