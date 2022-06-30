@@ -16,7 +16,7 @@ input {
     font-size: 20px;
     padding-left: 10px;
     border-radius: 8px;
-    border: 2px solid rgb(255, 163, 26);;
+    border: 1px solid rgb(151, 151, 151);
 }
 
 .name {
@@ -39,7 +39,7 @@ input {
     margin-bottom: 20px;
     border: 0;
     border-radius: 8px;
-    background-color: rgb(255, 163, 26);
+    background-color: rgb(67, 181, 243);
     color: white;
 }
 

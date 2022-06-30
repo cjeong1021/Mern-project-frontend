@@ -10,7 +10,7 @@ const PostInput = (props) => {
         <div className="inputBox">
 
             <input onChange={props.handlePostChange} placeholder="Picture URL" name="picture"/>
-            <input onChange={props.handlePostChange} className="description" placeholder="Description" name="description"/>
+            <input onChange={props.handlePostChange} placeholder="Description" name="description"/>
 
             <Link to="/main">
             <button onClick={props.saveUserPost} type='submit' className="submitBtn">Submit</button>
