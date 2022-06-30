@@ -143,7 +143,6 @@ console.log(post)
           <div>
             <strong>Comments :</strong>
             {renderComments}
-            <Comment post={post} userData={userData} getComments={getComments} />
         </div>
         </div>
         
