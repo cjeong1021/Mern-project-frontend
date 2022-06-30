@@ -18,7 +18,9 @@ const Post = ({ post, data, setData }) => {
 
   const getUser = () => {
     axios
-      .get(`http://localhost:8000/petstagram/users/${post.user}`)
+      .get(
+        `https://petstagram-backend.herokuapp.com/petstagram/users/${post.user}`
+      )
       .then((res) => {
         console.log(res.data);
         setUserData(res.data);
@@ -28,7 +30,9 @@ const Post = ({ post, data, setData }) => {
   const getComments = () => {
     let oldArray = [];
     const commentURLs = post.comments.map((comment) => {
-      return axios.get(`http://localhost:8000/petstagram/comments/${comment}`);
+      return axios.get(
+        `https://petstagram-backend.herokuapp.com/petstagram/comments/${comment}`
+      );
     });
     console.log(commentURLs);
 
@@ -54,7 +58,9 @@ const Post = ({ post, data, setData }) => {
 
   const deleteComment = (id) => {
     axios
-      .delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`)
+      .delete(
+        `https://petstagram-backend.herokuapp.com/petstagram/comments/${post._id}/${id}`
+      )
       .then(() => {
         let ids = comments.map((comment) => {
           return comment._id;
@@ -69,7 +75,7 @@ const Post = ({ post, data, setData }) => {
   const deletePost = (id) => {
     axios
       .delete(
-        `http://localhost:8000/petstagram/posts/${post._id}/${userData._id}`
+        `https://petstagram-backend.herokuapp.com/petstagram/posts/${post._id}/${userData._id}`
       )
       .then(() => {
         let ids = data.map((post) => {
@@ -92,7 +98,7 @@ const Post = ({ post, data, setData }) => {
     e.preventDefault();
     axios
       .put(
-        `http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+        `https://petstagram-backend.herokuapp.com/petstagram/posts/like/${post._id}/${post.user}`,
         { likes: post.likes + 1 }
       )
       .then((res) => {
@@ -106,7 +112,7 @@ const Post = ({ post, data, setData }) => {
     e.preventDefault();
     axios
       .put(
-        `http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+        `https://petstagram-backend.herokuapp.com/petstagram/posts/like/${post._id}/${post.user}`,
         { likes: post.likes }
       )
       .then((res) => {

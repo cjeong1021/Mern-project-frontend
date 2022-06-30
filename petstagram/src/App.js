@@ -21,7 +21,7 @@ function App() {
   const location = useLocation();
   const getData = () => {
     axios
-      .get('http://localhost:8000/petstagram/posts/')
+      .get('https://petstagram-backend.herokuapp.com/petstagram/posts/')
       .then((res) => {
         setData(res.data);
       })
@@ -31,7 +31,7 @@ function App() {
   };
   const getUserData = () => {
     axios
-      .get('http://localhost:8000/petstagram/users/')
+      .get('https://petstagram-backend.herokuapp.com/petstagram/users/')
       .then((res) => {
         setUserData(res.data);
         console.log(res.data);
@@ -82,9 +82,12 @@ function App() {
       const index = userData.indexOf(userSignIn);
       console.log(userData[index]._id);
       axios
-        .put(`http://localhost:8000/petstagram/users/${userData[index]._id}`, {
-          logIn: true,
-        })
+        .put(
+          `https://petstagram-backend.herokuapp.com/petstagram/users/${userData[index]._id}`,
+          {
+            logIn: true,
+          }
+        )
         .then((res) => {
           console.log(res.data);
           setUser(res.data);
@@ -119,7 +122,7 @@ function App() {
     const index = userData.indexOf(user);
     axios
       .put(
-        `http://localhost:8000/petstagram/users/${user._id}`,
+        `https://petstagram-backend.herokuapp.com/petstagram/users/${user._id}`,
         editProfileForm
       )
       .then((res) => {
@@ -146,7 +149,10 @@ function App() {
 
   const createUser = () => {
     axios
-      .post('http://localhost:8000/petstagram/users/', signUpForm)
+      .post(
+        'https://petstagram-backend.herokuapp.com/petstagram/users/',
+        signUpForm
+      )
       .then((res) => {
         let oldArray = [...userData];
         oldArray.push(res.data);
@@ -172,14 +178,17 @@ function App() {
 
   const saveUserPost = () => {
     axios
-      .post(`http://localhost:8000/petstagram/posts/${user._id}`, {
-        ...postInputForm,
-        likes: 0,
-        user: user._id,
-        likedByUsers: [],
-        favedByUsers: [],
-        comments: [],
-      })
+      .post(
+        `https://petstagram-backend.herokuapp.com/petstagram/posts/${user._id}`,
+        {
+          ...postInputForm,
+          likes: 0,
+          user: user._id,
+          likedByUsers: [],
+          favedByUsers: [],
+          comments: [],
+        }
+      )
       .then((res) => {
         let oldArray = [...data];
         oldArray.push(res.data);

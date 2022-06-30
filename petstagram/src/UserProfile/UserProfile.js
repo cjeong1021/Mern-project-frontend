@@ -9,7 +9,9 @@ const UserProfile = ({ user, setUser }) => {
 
   const getUser = () => {
     axios
-      .get(`http://localhost:8000/petstagram/users/${user._id}`)
+      .get(
+        `https://petstagram-backend.herokuapp.com/petstagram/users/${user._id}`
+      )
       .then((res) => {
         setUser(res.data);
       });
@@ -18,7 +20,9 @@ const UserProfile = ({ user, setUser }) => {
   const getPosts = () => {
     let oldArray = [];
     const postURLs = user.posts.map((post) => {
-      return axios.get(`http://localhost:8000/petstagram/posts/${post}`);
+      return axios.get(
+        `https://petstagram-backend.herokuapp.com/petstagram/posts/${post}`
+      );
     });
 
     console.log(postURLs);
