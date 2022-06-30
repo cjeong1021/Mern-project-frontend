@@ -1,92 +1,103 @@
-.mainPost{	
-    grid-row: 2;	
-
+.mainPost {
+  grid-row: 2;
 }
 .postBox {
-    width: 700px;
-    height: 1000px;
-    border: 0.5px rgb(165, 162, 162) solid;
-    border-radius: 30px;
-    margin: 0 auto;
-    margin-top: 30px;
-    display: grid;
-    grid-template-rows: 10% 50% 4% 6% 30% ;
-    max-width: 1000px;
-    background-color: white;
-    position: relative;
+  width: 700px;
+  height: 1000px;
+  border: 0.5px rgb(165, 162, 162) solid;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: grid;
+  grid-template-rows: 10% 50% 4% 6% 30%;
+  max-width: 1000px;
+  background-color: white;
+  position: relative;
 }
-.postTop{
-    display: flex;
-    align-items: center;
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.userName{
-    position: relative;
-    float: left;
-    font-size: 24px;
-
+.userName {
+  position: relative;
+  float: left;
+  font-size: 24px;
 }
 .postImage {
-    grid-row: 2 ;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    min-width: 100%;
-    max-width: 100%;
+  grid-row: 2;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  min-width: 100%;
+  max-width: 100%;
 }
-.likeButton{
-    border: none;
-    background-color: white;
-    display: inline-block;
-    height: 40px;
-    cursor: pointer;
+.likeButton {
+  border: none;
+  background-color: white;
+  display: inline-block;
+  height: 40px;
+  cursor: pointer;
 }
 .postIcon {
-    grid-row: 3;
-    display: flex;
-    justify-content: space-between;
+  grid-row: 3;
+  display: flex;
+  justify-content: space-between;
 }
-.captionSection{
-    margin-left: 1rem;
-    margin-top: 1rem;
+.captionSection {
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
-.likeHeart{
-    margin-left: .7rem;
+.likeHeart {
+  margin-left: 0.7rem;
 }
-.hide{
-    width: 100%;
-    line-height: 1.2em;
-    height: 3.6em; 
-    background-color: #363636;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+.hide {
+  width: 100%;
+  line-height: 1.2em;
+  height: 3.6em;
+  background-color: #363636;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
-.caption{
-    white-space: nowrap; 
-    width: 600px; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
+.caption {
+  white-space: nowrap;
+  width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.input-group  {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    width: 95%;
-    background-color:white;
-    border: none;
-    position: absolute;
-    bottom: 0;
+.input-group {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 95%;
+  background-color: white;
+  border: none;
+  position: absolute;
+  bottom: 0;
 }
 .commentSection {
-    white-space: nowrap; 
-    width: 600px; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    margin-left: 1rem;
-    margin-top: 1rem;
+  white-space: nowrap;
+  width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
-.saveButton{
-    margin-right: .8rem;
-    margin-top: .3rem;
+.saveButton {
+  margin-right: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.deleteBtn {
+  border: none;
+  float: right;
+  background-color: rgb(221, 105, 105);
+  border-radius: 4px;
+  color: white;
+}
+
+.deletePost {
+  margin-right: 1rem;
 }

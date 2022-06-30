@@ -13,8 +13,8 @@ const Post = ({ post, data, setData }) => {
   const [userData, setUserData] = useState({});
   const [comments, setComments] = useState([]);
   const [commentUsers, setCommentUsers] = useState([]);
-  const [likes, setLikes] = useState(0)
-console.log(post)
+  const [likes, setLikes] = useState(0);
+  console.log(post);
 
   const getUser = () => {
     axios
@@ -84,32 +84,37 @@ console.log(post)
 
   useEffect(() => {
     getUser();
-    setLikes(post.likes)
+    setLikes(post.likes);
   }, []);
 
   const likeFunction = (e) => {
-    console.log("Liking post")
+    console.log('Liking post');
     e.preventDefault();
-    axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
-    {likes: post.likes + 1})
-    .then((res) => {
-     console.log(res)
-     setLikes(res.data.likes)
-    })
-    .catch(err => console.log(err))
-  }
+    axios
+      .put(
+        `http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+        { likes: post.likes + 1 }
+      )
+      .then((res) => {
+        console.log(res);
+        setLikes(res.data.likes);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const dislikeFunction = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
-    {likes: post.likes})
-    .then((res) => {
-     console.log(res)
-     setLikes(res.data.likes)
-    })
-    .catch(err => console.log(err))
-  }
-
+    axios
+      .put(
+        `http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+        { likes: post.likes }
+      )
+      .then((res) => {
+        console.log(res);
+        setLikes(res.data.likes);
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     getComments();
@@ -119,7 +124,11 @@ console.log(post)
     return (
       <div className='commentSection'>
         {comment.comment}
-        <button onClick={() => deleteComment(comment._id)} id={comment._id}>
+        <button
+          className='deleteBtn'
+          onClick={() => deleteComment(comment._id)}
+          id={comment._id}
+        >
           Delete
         </button>
       </div>
@@ -137,16 +146,28 @@ console.log(post)
             </p>
           </Link>
         </div>
-        <button onClick={() => deletePost(post._id)} id={post._id}>
+        <button
+          className='deleteBtn deletePost'
+          onClick={() => deletePost(post._id)}
+          id={post._id}
+        >
           Delete
         </button>
         <img className='postImage' src={post.picture} alt='#' />
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
             {isLiked ? (
-              <IoIosHeart onClick={dislikeFunction} className='likeHeart' size={40} />
+              <IoIosHeart
+                onClick={dislikeFunction}
+                className='likeHeart'
+                size={40}
+              />
             ) : (
-              <IoIosHeartEmpty onClick={likeFunction} className='likeHeart' size={40} />
+              <IoIosHeartEmpty
+                onClick={likeFunction}
+                className='likeHeart'
+                size={40}
+              />
             )}
           </p>
           <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
@@ -163,8 +184,8 @@ console.log(post)
           <p className='caption'>
             <strong>Caption</strong> : {post.description}
           </p>
+          <div>{renderComments}</div>
         </div>
-        <div>{renderComments}</div>
         <br />
         <Comment
           post={post}
