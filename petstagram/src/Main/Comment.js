@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const Comment = ({ post, userData, getComments }) => {
+const Comment = ({ post, userData, comments, setComments, getComments }) => {
   const [newComment, setNewComment] = useState('');
 
   const handleComment = (e) => {
@@ -16,21 +16,35 @@ const Comment = ({ post, userData, getComments }) => {
           comment: newComment,
         }
       )
-      .then(() => {
-        // getComments();
+      .then((res) => {
+        let oldArray = [...comments];
+        oldArray.push(res.data);
+        setComments(oldArray);
       });
   };
 
-    
-  
   return (
     <div>
-     <form>
-        <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Comment..." aria-label="Recipient's username" aria-describedby="basic-addon2" maxlength="60"/>
-        </div>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">Post</button>
+      <form>
+        <div class='input-group mb-3'>
+          <input
+            onChange={handleComment}
+            type='text'
+            class='form-control'
+            placeholder='Comment...'
+            aria-label="Recipient's username"
+            aria-describedby='basic-addon2'
+            maxlength='60'
+          />
+          <div class='input-group-append'>
+            <button
+              onClick={submitComment}
+              class='btn btn-outline-secondary'
+              type='button'
+            >
+              Post
+            </button>
+          </div>
         </div>
       </form>
     </div>

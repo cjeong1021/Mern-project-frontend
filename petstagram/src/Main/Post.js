@@ -7,7 +7,7 @@ import './post.css';
 import Comment from './Comment';
 import axios from 'axios';
 
-const Post = ({ post }) => {
+const Post = ({ post, data, setData }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [userData, setUserData] = useState({});
@@ -15,11 +15,6 @@ const Post = ({ post }) => {
   const [commentUsers, setCommentUsers] = useState([]);
   const [likes, setLikes] = useState(0)
 console.log(post)
-
-  const commentData = post.comments.map((comment) => {
-    return comment;
-  });
-
 
   const getUser = () => {
     axios
@@ -159,10 +154,20 @@ console.log(post)
       });
   };
 
-  const deletePost = () => {
-    axios.delete(
-      `http://localhost:8000/petstagram/posts/${post._id}/${userData._id}`
-    );
+  const deletePost = (id) => {
+    axios
+      .delete(
+        `http://localhost:8000/petstagram/posts/${post._id}/${userData._id}`
+      )
+      .then(() => {
+        let ids = data.map((post) => {
+          return post._id;
+        });
+        let index = ids.indexOf(id);
+        let temp = [...data];
+        temp.splice(index, 1);
+        setData(temp);
+      });
   };
 
   useEffect(() => {
@@ -196,7 +201,9 @@ console.log(post)
             </p>
           </Link>
         </div>
-        <button onClick={() => deletePost()}>Delete</button>
+        <button onClick={() => deletePost(post._id)} id={post._id}>
+          Delete
+        </button>
         <img className='postImage' src={post.picture} alt='#' />
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
@@ -223,7 +230,13 @@ console.log(post)
         </div>
         <div>{renderComments}</div>
         <br />
-        <Comment post={post} userData={userData} getComments={getComments} />
+        <Comment
+          post={post}
+          userData={userData}
+          comments={comments}
+          setComments={setComments}
+          getComments={getComments}
+        />
       </div>
     </div>
   );
