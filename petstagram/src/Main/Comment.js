@@ -28,10 +28,6 @@ const Comment = ({ post, userData, comments, setComments, getComments }) => {
       });
   };
 
-//   useEffect(() => {
-//       submitComment()
-//     }, [newComment])
-// // 
   return (
     <div>
       <form>

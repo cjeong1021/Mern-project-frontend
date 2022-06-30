@@ -13,7 +13,6 @@ const Post = ({ post, data, setData }) => {
   const [userData, setUserData] = useState({});
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState(0)
-
 console.log(post)
 
   const getUser = () => {
