@@ -56,8 +56,12 @@ const Navigation = () => {
               <Link to="/">
               <Dropdown.Item href="#/action-2">Sign Out</Dropdown.Item>
               </Link>
+              <Link to="/liked-posts">
               <Dropdown.Item href="#/action-2">Liked Posts</Dropdown.Item>
+              </Link>
+              <Link to="/saved-posts">
               <Dropdown.Item href="#/action-2">Saved Posts</Dropdown.Item>
+              </Link>
             </Dropdown.Menu>
           </Dropdown>
           </div>

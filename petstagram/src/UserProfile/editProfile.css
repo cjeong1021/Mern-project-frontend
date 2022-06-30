@@ -1,0 +1,45 @@
+
+.signUpBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    margin: 0 auto;
+    height: 100vh;
+}
+.signupMain {
+    margin-top: 1rem;
+}
+input {
+    margin-bottom: 20px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    border-radius: 8px;
+    border: 1px solid rgb(151, 151, 151);
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nameInput {
+    width: 75%;
+}
+
+.ageInput {
+    width: 20%;
+}
+
+.submitBtn {
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-radius: 8px;
+    background-color: rgb(67, 181, 243);
+    color: white;
+}
+

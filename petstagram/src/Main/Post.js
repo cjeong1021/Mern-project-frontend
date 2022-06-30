@@ -7,12 +7,14 @@ import './post.css';
 import Comment from './Comment';
 import axios from 'axios';
 
-const Post = ({ post }) => {
+const Post = ({ post, data, setData }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [userData, setUserData] = useState({});
   const [comments, setComments] = useState([]);
   const [commentUsers, setCommentUsers] = useState([]);
+  const [likes, setLikes] = useState(0)
+console.log(post)
 
   const getUser = () => {
     axios
@@ -51,29 +53,67 @@ const Post = ({ post }) => {
   };
 
   const deleteComment = (id) => {
-    axios.delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`);
+    axios
+      .delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`)
+      .then(() => {
+        let ids = comments.map((comment) => {
+          return comment._id;
+        });
+        let index = ids.indexOf(id);
+        let temp = [...comments];
+        temp.splice(index, 1);
+        setComments(temp);
+      });
   };
 
-  const deletePost = () => {
-    axios.delete(
-      `http://localhost:8000/petstagram/posts/${post._id}/${userData._id}`
-    );
+  const deletePost = (id) => {
+    axios
+      .delete(
+        `http://localhost:8000/petstagram/posts/${post._id}/${userData._id}`
+      )
+      .then(() => {
+        let ids = data.map((post) => {
+          return post._id;
+        });
+        let index = ids.indexOf(id);
+        let temp = [...data];
+        temp.splice(index, 1);
+        setData(temp);
+      });
   };
 
   useEffect(() => {
     getUser();
-    getComments();
+    setLikes(post.likes)
   }, []);
 
-  // useEffect(() => {
-  //   comments.forEach((comment) => {
-  //     axios
-  //       .get(`http://localhost:8000/petstagram/users/${comment.user}`)
-  //       .then((res) => {
-  //         setCommentUsers([...commentUsers, res.data]);
-  //       });
-  //   });
-  // }, [comments]);
+  const likeFunction = (e) => {
+    console.log("Liking post")
+    e.preventDefault();
+    axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+    {likes: post.likes + 1})
+    .then((res) => {
+     console.log(res)
+     setLikes(res.data.likes)
+    })
+    .catch(err => console.log(err))
+  }
+
+  const dislikeFunction = (e) => {
+    e.preventDefault();
+    axios.put(`http://localhost:8000/petstagram/posts/like/${post._id}/${post.user}`,
+    {likes: post.likes})
+    .then((res) => {
+     console.log(res)
+     setLikes(res.data.likes)
+    })
+    .catch(err => console.log(err))
+  }
+
+
+  useEffect(() => {
+    getComments();
+  }, []);
 
   const renderComments = comments.map((comment) => {
     return (
@@ -97,14 +137,16 @@ const Post = ({ post }) => {
             </p>
           </Link>
         </div>
-        <button onClick={() => deletePost()}>Delete</button>
+        <button onClick={() => deletePost(post._id)} id={post._id}>
+          Delete
+        </button>
         <img className='postImage' src={post.picture} alt='#' />
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
             {isLiked ? (
-              <IoIosHeart className='likeHeart' size={40} />
+              <IoIosHeart onClick={dislikeFunction} className='likeHeart' size={40} />
             ) : (
-              <IoIosHeartEmpty className='likeHeart' size={40} />
+              <IoIosHeartEmpty onClick={likeFunction} className='likeHeart' size={40} />
             )}
           </p>
           <p className='likeButton' onClick={() => setIsSaved(!isSaved)}>
@@ -116,7 +158,7 @@ const Post = ({ post }) => {
           </p>
         </div>
         <div className='captionSection'>
-          <strong>Likes</strong> : {post.likes}
+          <strong>Likes</strong> : {likes}
           <br />
           <p className='caption'>
             <strong>Caption</strong> : {post.description}
@@ -124,7 +166,13 @@ const Post = ({ post }) => {
         </div>
         <div>{renderComments}</div>
         <br />
-        <Comment post={post} userData={userData} />
+        <Comment
+          post={post}
+          userData={userData}
+          comments={comments}
+          setComments={setComments}
+          getComments={getComments}
+        />
       </div>
     </div>
   );
