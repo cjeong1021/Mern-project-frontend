@@ -10,6 +10,7 @@ import SignUp from './SignUp/SignUp';
 import Upload from './PostInput/Upload';
 import UserProfile from './UserProfile/UserProfile';
 import ShopBoard from './Shop/ShopBoard';
+import EditProfile from './UserProfile/EditProfile';
 
 function App() {
   const [data, setData] = useState([]);
@@ -45,12 +46,16 @@ function App() {
 
   //User logged in
   const [user, setUser] = useState({
-    name: '',
+    name: "",
+    breed: "",
+    type: "",
     age: null,
-    username: null,
-    password: '',
-    email: '',
-    logIn: false,
+    picture: "",
+    username: "",
+    password: "",
+    email: "",
+    logIn: null,
+    description: ""
   });
 
   //Login
@@ -86,6 +91,35 @@ function App() {
       alert('The password you’ve entered is incorrect.');
     }
   };
+
+  //edit user profile
+  const [editProfileForm, seteditProfileForm] = useState({
+    name: user.name,
+    breed: user.breed,
+    type: user.type,
+    age: user.age,
+    picture: user.picture,
+    username: user.username,
+    password: user.password,
+    email: user.email,
+    logIn: true,
+    description: user.description
+  })
+
+  const handleProfileForm = (e) => {
+    seteditProfileForm({
+      ...editProfileForm,
+      [e.target.name]: e.target.value 
+    })
+  }
+
+  const editUser = () => {
+    const index = userData.indexOf(user);
+    axios.put(`http://localhost:8000/petstagram/users/${user._id}`, editProfileForm)
+    .then(res => {
+      setUser(res.data)
+    })
+  }
 
   //Sign Up
   const [signUpForm, setSignUpForm] = useState({
@@ -184,7 +218,7 @@ function App() {
               />
             }
           />
-          <Route path='user-profile' element={<UserProfile data={data} />} />
+          <Route path='user-profile' element={<UserProfile data={data} user={user}/>} />
           <Route
             path='/sign-up'
             element={
@@ -192,6 +226,7 @@ function App() {
             }
           />
           <Route path='/shop' element={<ShopBoard />} />
+          <Route path='/edit-profile' element={<EditProfile editProfileForm={editProfileForm} handleProfileForm={handleProfileForm} editUser={editUser}/>} />
         </Routes>
       </main>
     </div>
