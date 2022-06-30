@@ -15,10 +15,12 @@ import SavedPosts from './likedPosts/SavedPosts';
 
 function App() {
   const [data, setData] = useState([]);
+  //UserData
+  const [userData, setUserData] = useState([]);
   const location = useLocation();
   const getData = () => {
     axios
-      .get('http://localhost:8000/petstagram/posts')
+      .get('http://localhost:8000/petstagram/posts/')
       .then((res) => {
         setData(res.data);
       })
@@ -28,7 +30,7 @@ function App() {
   };
   const getUserData = () => {
     axios
-      .get('http://localhost:8000/petstagram/users')
+      .get('http://localhost:8000/petstagram/users/')
       .then((res) => {
         setUserData(res.data);
         console.log(res.data);
@@ -37,9 +39,6 @@ function App() {
         console.log(err);
       });
   };
-
-  //UserData
-  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     getData();
@@ -70,18 +69,21 @@ function App() {
   };
 
   const validateLogin = () => {
-    const user = userData.find((user) => user.username === loginForm.username);
-    if (user.password === loginForm.password) {
+    const userSignIn = userData.find(
+      (user) => user.username === loginForm.username
+    );
+    if (userSignIn.password === loginForm.password) {
       console.log('welcome');
-      const index = userData.indexOf(user);
+      const index = userData.indexOf(userSignIn);
+      console.log(userData[index]._id);
       axios
         .put(`http://localhost:8000/petstagram/users/${userData[index]._id}`, {
           logIn: true,
         })
         .then((res) => {
           console.log(res.data);
+          setUser(res.data);
         });
-      setUser(userData[index]);
     } else {
       alert('The password you’ve entered is incorrect.');
     }
@@ -105,7 +107,13 @@ function App() {
   };
 
   const createUser = () => {
-    axios.post('http://localhost:8000/petstagram/users/', signUpForm);
+    axios
+      .post('http://localhost:8000/petstagram/users/', signUpForm)
+      .then((res) => {
+        let oldArray = [...userData];
+        oldArray.push(res.data);
+        setUserData(oldArray);
+      });
   };
 
   //Post Input
@@ -125,14 +133,20 @@ function App() {
   };
 
   const saveUserPost = () => {
-    axios.post(`http://localhost:8000/petstagram/posts/${user._id}`, {
-      ...postInputForm,
-      likes: 0,
-      user: user._id,
-      likedByUsers: [],
-      favedByUsers: [],
-      comments: [],
-    });
+    axios
+      .post(`http://localhost:8000/petstagram/posts/${user._id}`, {
+        ...postInputForm,
+        likes: 0,
+        user: user._id,
+        likedByUsers: [],
+        favedByUsers: [],
+        comments: [],
+      })
+      .then((res) => {
+        let oldArray = [...data];
+        oldArray.push(res.data);
+        setData(oldArray);
+      });
   };
 
   return (
@@ -145,7 +159,10 @@ function App() {
       </nav>
       <main>
         <Routes>
-          <Route path='/main' element={<Main data={data} />} />
+          <Route
+            path='/main'
+            element={<Main data={data} setData={setData} />}
+          />
           <Route
             path='/'
             element={
