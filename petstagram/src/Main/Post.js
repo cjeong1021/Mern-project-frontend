@@ -25,7 +25,6 @@ console.log(post)
       });
   };
 
-  
 
   const deleteComment = (id) => {
     axios
@@ -152,7 +151,6 @@ console.log(post)
           userData={userData}
           comments={comments}
           setComments={setComments}
-          getComments={getComments}
         />
       </div>
     </div>
