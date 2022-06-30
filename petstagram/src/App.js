@@ -48,16 +48,16 @@ function App() {
 
   //User logged in
   const [user, setUser] = useState({
-    name: "",
-    breed: "",
-    type: "",
+    name: '',
+    breed: '',
+    type: '',
     age: null,
-    picture: "",
-    username: "",
-    password: "",
-    email: "",
+    picture: '',
+    username: '',
+    password: '',
+    email: '',
     logIn: null,
-    description: ""
+    description: '',
   });
 
   //Login
@@ -105,23 +105,27 @@ function App() {
     password: user.password,
     email: user.email,
     logIn: true,
-    description: user.description
-  })
+    description: user.description,
+  });
 
   const handleProfileForm = (e) => {
     seteditProfileForm({
       ...editProfileForm,
-      [e.target.name]: e.target.value 
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const editUser = () => {
     const index = userData.indexOf(user);
-    axios.put(`http://localhost:8000/petstagram/users/${user._id}`, editProfileForm)
-    .then(res => {
-      setUser(res.data)
-    })
-  }
+    axios
+      .put(
+        `http://localhost:8000/petstagram/users/${user._id}`,
+        editProfileForm
+      )
+      .then((res) => {
+        setUser(res.data);
+      });
+  };
 
   //Sign Up
   const [signUpForm, setSignUpForm] = useState({
@@ -220,7 +224,10 @@ function App() {
               />
             }
           />
-          <Route path='user-profile' element={<UserProfile data={data} user={user}/>} />
+          <Route
+            path='user-profile'
+            element={<UserProfile data={data} user={user} setUser={setUser} />}
+          />
           <Route
             path='/sign-up'
             element={
@@ -228,7 +235,16 @@ function App() {
             }
           />
           <Route path='/shop' element={<ShopBoard />} />
-          <Route path='/edit-profile' element={<EditProfile editProfileForm={editProfileForm} handleProfileForm={handleProfileForm} editUser={editUser}/>} />
+          <Route
+            path='/edit-profile'
+            element={
+              <EditProfile
+                editProfileForm={editProfileForm}
+                handleProfileForm={handleProfileForm}
+                editUser={editUser}
+              />
+            }
+          />
         </Routes>
       </main>
     </div>
