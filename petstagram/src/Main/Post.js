@@ -77,15 +77,6 @@ const Post = ({ post }) => {
   useEffect(() => {
     getComments();
   }, []);
-  // useEffect(() => {
-  //   comments.forEach((comment) => {
-  //     axios
-  //       .get(`http://localhost:8000/petstagram/users/${comment.user}`)
-  //       .then((res) => {
-  //         setCommentUsers([...commentUsers, res.data]);
-  //       });
-  //   });
-  // }, [comments]);
 
   const renderComments = comments.map((comment) => {
     return (
