@@ -51,7 +51,17 @@ const Post = ({ post }) => {
   };
 
   const deleteComment = (id) => {
-    axios.delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`);
+    axios
+      .delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`)
+      .then(() => {
+        let ids = comments.map((comment) => {
+          return comment._id;
+        });
+        let index = ids.indexOf(id);
+        let temp = [...comments];
+        temp.splice(index, 1);
+        setComments(temp);
+      });
   };
 
   const deletePost = () => {
@@ -62,9 +72,11 @@ const Post = ({ post }) => {
 
   useEffect(() => {
     getUser();
-    getComments();
   }, []);
 
+  useEffect(() => {
+    getComments();
+  }, []);
   // useEffect(() => {
   //   comments.forEach((comment) => {
   //     axios
@@ -124,7 +136,7 @@ const Post = ({ post }) => {
         </div>
         <div>{renderComments}</div>
         <br />
-        <Comment post={post} userData={userData} />
+        <Comment post={post} userData={userData} getComments={getComments} />
       </div>
     </div>
   );
