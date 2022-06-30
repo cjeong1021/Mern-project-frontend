@@ -18,6 +18,7 @@
 .postTop{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .userName{
@@ -89,4 +90,14 @@
 .saveButton{
     margin-right: .8rem;
     margin-top: .3rem;
+}
+.deleteBtn {
+    border: none;
+    float: right;
+    background-color: rgb(221, 105, 105);
+    border-radius: 4px;
+    color: white;
+}
+.deletePost {
+    margin-right: 1rem;
 }

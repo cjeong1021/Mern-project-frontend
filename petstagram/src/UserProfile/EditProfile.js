@@ -16,10 +16,10 @@ const EditProfile = (props) => {
                 <input onChange={(e) => props.handleProfileForm(e)} placeholder="Type" value={`${props.editProfileForm.type}`} name="type" />
                 <input onChange={(e) => props.handleProfileForm(e)} placeholder="Breed" value={`${props.editProfileForm.breed}`} name="breed" />
                 <input onChange={(e) => props.handleProfileForm(e)} placeholder="URL" value={`${props.editProfileForm.picture}`} name="picture" />
-                <input onChange={(e) => props.handleProfileForm(e)} placeholder="Id" name="username" />
-                <input onChange={(e) => props.handleProfileForm(e)} placeholder="Password" name="password" />
-                <input onChange={(e) => props.handleProfileForm(e)} placeholder="Email address" name="email" />
-                <input onChange={(e) => props.handleProfileForm(e)} placeholder="Introduction" name="description" />
+                <input onChange={(e) => props.handleProfileForm(e)} placeholder="username" value={`${props.editProfileForm.username}`} name="username" />
+                <input onChange={(e) => props.handleProfileForm(e)} placeholder="Password" value={`${props.editProfileForm.password}`} name="password" />
+                <input onChange={(e) => props.handleProfileForm(e)} placeholder="Email address" value={`${props.editProfileForm.email}`} name="email" />
+                <input onChange={(e) => props.handleProfileForm(e)} placeholder="Introduction" value={`${props.editProfileForm.description}`} name="description" />
             </div>
             <Link to="/my-profile">
             <button onClick={() => props.editUser()} className="submitBtn">Submit</button>
