@@ -11,7 +11,7 @@ const Comment = ({ post, userData, comments, setComments, getComments }) => {
   const submitComment = () => {
     axios
       .post(
-        `http://localhost:8000/petstagram/comments/${post._id}/${userData._id}`,
+        `https://petstagram-backend.herokuapp.com/petstagram/comments/${post._id}/${userData._id}`,
         {
           comment: newComment,
         }
