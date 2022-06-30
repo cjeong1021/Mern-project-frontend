@@ -1,5 +1,6 @@
 import React from "react";
 import { BiUserCircle } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import "./UserProfile.css";
 
 const UserProfile = (props) => {
@@ -9,21 +10,23 @@ const UserProfile = (props) => {
       <div className="userInfo">
         <BiUserCircle className="userIcon" />
         <div className="user">
-          <p id="userName">User Name</p>
-          <button>Edit profile</button>
+          <p id="userName">{props.user.name}</p>
+          <Link to='/edit-profile'>
+          <button className="userBtn">Edit profile</button>
+          </Link>
         </div>
 
         <div className="postQuantity">
           <div id="post">
-          <p>0</p> <p>Posts</p>
+          <p>0</p> <p className="text">Posts</p>
           </div>
 
           <div id="followers">
-          <p>0</p> <p>Followers</p>
+          <p>0</p> <p className="text">Followers</p>
           </div>
 
           <div id="following">
-          <p>0</p> <p>Following</p>
+          <p>0</p> <p className="text">Following</p>
           </div>
         </div>
 
