@@ -16,9 +16,8 @@
     position: relative;
 }
 .postTop{
-    display: flex;
+    display: inline-block;
     align-items: center;
-    justify-content: space-between;
 }
 
 .userName{
@@ -96,8 +95,10 @@
     float: right;
     background-color: rgb(221, 105, 105);
     border-radius: 4px;
-    color: white;
+    color: rgb(243, 237, 237);
 }
 .deletePost {
-    margin-right: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
 }

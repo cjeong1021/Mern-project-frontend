@@ -118,7 +118,7 @@ console.log(post)
       <div className='commentSection'>
         {comment.comment}
 
-        <button  onClick={() => deleteComment(comment._id)} id={comment._id}>
+        <button className='deleteBtn' onClick={() => deleteComment(comment._id)} id={comment._id}>
           Delete
         </button>
 
@@ -138,10 +138,10 @@ console.log(post)
               {userData.name}
             </p>
           </Link>
-        <button className='deleteBtn ' onClick={() => deletePost(post._id)} id={post._id}>
-          Delete
-        </button>
         </div>
+              <button className='deleteBtn deletePost ' onClick={() => deletePost(post._id)} id={post._id}>
+              Delete Post
+              </button>
         <img className='postImage' src={post.picture} alt='#' />
         <div className='postIcon'>
           <p className='likeButton' onClick={() => setIsLiked(!isLiked)}>
