@@ -118,7 +118,7 @@ console.log(post)
       <div className='commentSection'>
         {comment.comment}
 
-        <button className='deleteBtn' onClick={() => deleteComment(comment._id)} id={comment._id}>
+        <button  onClick={() => deleteComment(comment._id)} id={comment._id}>
           Delete
         </button>
 
