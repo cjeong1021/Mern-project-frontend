@@ -1,12 +1,17 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Comment = ({ post, userData, getComments }) => {
   const [newComment, setNewComment] = useState('');
+  // const [postComments, setPostComments] = useState('')
+
 
   const handleComment = (e) => {
     setNewComment(e.target.value);
   };
+
+  
+  // 
 
   const submitComment = () => {
     axios
@@ -21,6 +26,10 @@ const Comment = ({ post, userData, getComments }) => {
       });
   };
 
+//   useEffect(() => {
+//       submitComment()
+//     }, [newComment])
+// // 
   return (
     <div>
       <form>

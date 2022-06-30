@@ -12,8 +12,8 @@ const Post = ({ post }) => {
   const [isSaved, setIsSaved] = useState(false);
   const [userData, setUserData] = useState({});
   const [comments, setComments] = useState([]);
-  const [commentUsers, setCommentUsers] = useState([]);
   const [likes, setLikes] = useState(0)
+
 console.log(post)
 
   const getUser = () => {
@@ -25,32 +25,7 @@ console.log(post)
       });
   };
 
-  const getComments = () => {
-    let oldArray = [];
-    const commentURLs = post.comments.map((comment) => {
-      return axios.get(`http://localhost:8000/petstagram/comments/${comment}`);
-    });
-    console.log(commentURLs);
-
-    if (comments !== []) {
-      axios
-        .all(commentURLs)
-        .then((res) => {
-          console.log(res);
-          res.forEach((response) => {
-            console.log(response.data);
-            oldArray.push(response.data);
-          });
-          console.log(oldArray);
-          setTimeout(() => {
-            setComments(oldArray);
-          }, 1000);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  };
+  
 
   const deleteComment = (id) => {
     axios
@@ -116,6 +91,8 @@ console.log(post)
     );
   });
 
+ 
+  console.log(post.comments)
   return (
     <div className='mainPost'>
       <div className='postBox'>
@@ -152,8 +129,9 @@ console.log(post)
             <strong>Caption</strong> : {post.description}
           </p>
           <div>
-          {renderComments}
-        <Comment post={post} userData={userData} getComments={getComments} />
+            <strong>Comments :</strong>
+            {renderComments}
+            <Comment post={post} userData={userData} getComments={getComments} />
         </div>
         </div>
         
