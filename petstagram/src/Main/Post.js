@@ -151,10 +151,13 @@ console.log(post)
           <p className='caption'>
             <strong>Caption</strong> : {post.description}
           </p>
-        </div>
-        <div>{renderComments}</div>
-        <br />
+          <div>
+          {renderComments}
         <Comment post={post} userData={userData} getComments={getComments} />
+        </div>
+        </div>
+        
+        <br />
       </div>
     </div>
   );
