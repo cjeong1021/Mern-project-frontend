@@ -84,6 +84,7 @@ console.log(post)
           });
         }
       };
+      
   //     useEffect(() => {
   //   getUser();
   //   setLikes(post.likes)
@@ -117,6 +118,64 @@ console.log(post)
                 const renderComments = comments.map((comment) => {
                   return (
                     <div className='commentSection'>
+  const getComments = () => {
+    let oldArray = [];
+    const commentURLs = post.comments.map((comment) => {
+      return axios.get(`http://localhost:8000/petstagram/comments/${comment}`);
+    });
+    console.log(commentURLs);
+
+    if (comments !== []) {
+      axios
+        .all(commentURLs)
+        .then((res) => {
+          console.log(res);
+          res.forEach((response) => {
+            console.log(response.data);
+            oldArray.push(response.data);
+          });
+          console.log(oldArray);
+          setTimeout(() => {
+            setComments(oldArray);
+          }, 1000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  const deleteComment = (id) => {
+    axios
+      .delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`)
+      .then(() => {
+        let ids = comments.map((comment) => {
+          return comment._id;
+        });
+        let index = ids.indexOf(id);
+        let temp = [...comments];
+        temp.splice(index, 1);
+        setComments(temp);
+      });
+  };
+
+  const deletePost = () => {
+    axios.delete(
+      `http://localhost:8000/petstagram/posts/${post._id}/${userData._id}`
+    );
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  useEffect(() => {
+    getComments();
+  }, []);
+
+  const renderComments = comments.map((comment) => {
+    return (
+      <div className='commentSection'>
         {comment.comment}
         <button onClick={() => deleteComment(comment._id)} id={comment._id}>
           Delete
@@ -164,7 +223,7 @@ console.log(post)
         </div>
         <div>{renderComments}</div>
         <br />
-        <Comment post={post} userData={userData} />
+        <Comment post={post} userData={userData} getComments={getComments} />
       </div>
     </div>
   );
