@@ -24,7 +24,32 @@ console.log(post)
       });
   };
 
+  const getComments = () => {
+    let oldArray = [];
+    const commentURLs = post.comments.map((comment) => {
+      return axios.get(`http://localhost:8000/petstagram/comments/${comment}`);
+    });
+    console.log(commentURLs);
 
+    if (comments !== []) {
+      axios
+        .all(commentURLs)
+        .then((res) => {
+          console.log(res);
+          res.forEach((response) => {
+            console.log(response.data);
+            oldArray.push(response.data);
+          });
+          console.log(oldArray);
+          setTimeout(() => {
+            setComments(oldArray);
+          }, 1000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
   const deleteComment = (id) => {
     axios
       .delete(`http://localhost:8000/petstagram/comments/${post._id}/${id}`)

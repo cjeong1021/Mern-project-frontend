@@ -10,15 +10,15 @@ const ShopItem = () => {
         </div>
 
         <div className='shopItem__title'>
-            <p>Item Name</p>
+            <p>Scooby Snacks</p>
         </div>
 
         <div className='shopItem__description'>
-            <p>Item Description</p>
+            <p>Zoinks!</p>
         </div>
 
         <div className='shopItem__price'>
-            <p>$100</p>
+            <p>$69,420</p>
         </div>
 
         <div className='shopItem__button'>
