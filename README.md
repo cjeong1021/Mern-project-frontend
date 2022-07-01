@@ -1,8 +1,10 @@
 # Petstagram 
 
 ![](../../../../OneDrive/Masa%C3%BCst%C3%BC/1.jpg)
+![1](https://user-images.githubusercontent.com/99930464/176901462-149ea912-2ba0-4a79-8519-59cc92e1598c.jpg)
 
 ![](../../../../OneDrive/Masa%C3%BCst%C3%BC/3.jpg)
+![3](https://user-images.githubusercontent.com/99930464/176901479-2f0302f8-a5e5-4a66-890e-cdc754511fe9.jpg)
 
 ## Project Description
 
@@ -28,6 +30,7 @@ The wireframes for this project were created using Bootstrap and React-router-do
 
 
 ![](../../../../OneDrive/Masa%C3%BCst%C3%BC/Component%20Tree.jpg)
+![Component Tree](https://user-images.githubusercontent.com/99930464/176901508-9b186648-0a02-4125-b831-0113609348ed.jpg)
 
 ## User Stories
     - As a user, I'd like to create an account.
